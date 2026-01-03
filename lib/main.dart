@@ -12,8 +12,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "ssnbuilds",
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Color(0xff3b8527),
+          brightness: Brightness.dark,
+        ),
         useMaterial3: true,
+
+        fontFamily: 'minecraft',
       ),
       home: const MyHomePage(),
     );
@@ -26,15 +31,19 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Positioned.fill(
-            child: Image.network(
-              'web/assets/bg/day/day_high.png',
-              fit: BoxFit.cover,
+      body: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: Row(
+              children: [
+                Image.network(
+                  'web/assets/logo/text_logo.png',
+                  width: 200,
+                  height: 50,
+                ),
+              ],
             ),
           ),
-          Align(child: Image.network('web/assets/logo/text_logo.png')),
         ],
       ),
     );

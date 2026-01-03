@@ -21,3 +21,16 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  fonts:
+    - family: minecraft
+      fonts:
+        - asset: assets/fonts/minecraft/minecraft_regular.otf
+        - asset: assets/fonts/minecraft/minecraft_bold.otf
+          weight: 700
+    - family: minecraft_block
+      fonts:
+        - asset: assets/fonts/minecraft/minecraft_block.ttf
+          weight: 900
+       
+
