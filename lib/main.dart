@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 import 'package:ssnbuilds/pages/home_page.dart';
 
 void main() {
@@ -23,12 +24,18 @@ class MyApp extends StatelessWidget {
       ),
       home: const HomePage(),
       builder: (context, child) {
-        return ColoredBox(
-          color: Theme.of(context).colorScheme.surface,
-          child: Center(
-            child: ConstrainedBox(
-              constraints: BoxConstraints(maxWidth: 900),
-              child: child!,
+        return ResponsiveBreakpoints.builder(
+          breakpoints: [
+            const Breakpoint(start: 0, end: 450, name: MOBILE),
+            const Breakpoint(start: 451, end: double.infinity, name: TABLET),
+          ],
+          child: ColoredBox(
+            color: Theme.of(context).colorScheme.surface,
+            child: Center(
+              child: ConstrainedBox(
+                constraints: BoxConstraints(maxWidth: 900),
+                child: child!,
+              ),
             ),
           ),
         );
