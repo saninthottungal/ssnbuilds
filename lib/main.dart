@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ssnbuilds/pages/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
 
         fontFamily: 'minecraft',
       ),
-      home: const MyHomePage(),
+      home: const HomePage(),
       builder: (context, child) {
         return ColoredBox(
           color: Theme.of(context).colorScheme.surface,
@@ -32,31 +33,6 @@ class MyApp extends StatelessWidget {
           ),
         );
       },
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: CustomScrollView(
-        slivers: [
-          SliverToBoxAdapter(
-            child: Row(
-              children: [
-                Image.network(
-                  'web/assets/logo/text_logo.png',
-                  width: 200,
-                  height: 50,
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
     );
   }
 }
