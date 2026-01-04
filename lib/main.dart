@@ -21,6 +21,17 @@ class MyApp extends StatelessWidget {
         fontFamily: 'minecraft',
       ),
       home: const MyHomePage(),
+      builder: (context, child) {
+        return ColoredBox(
+          color: Theme.of(context).colorScheme.surface,
+          child: Center(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(maxWidth: 900),
+              child: child!,
+            ),
+          ),
+        );
+      },
     );
   }
 }
