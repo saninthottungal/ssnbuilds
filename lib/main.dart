@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gutter/flutter_gutter.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:ssnbuilds/pages/home_page.dart';
+import 'package:ssnbuilds/widgets/app_header.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,14 +16,14 @@ class MyApp extends StatelessWidget {
       title: "ssnbuilds",
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Color(0xff3b8527),
+          seedColor: const Color(0xff3b8527),
           brightness: Brightness.dark,
         ),
         useMaterial3: true,
 
         fontFamily: 'minecraft',
       ),
-      home: const HeaderWidget(),
+      home: const AppHeader(),
       builder: (context, child) {
         return ResponsiveBreakpoints.builder(
           breakpoints: [
@@ -32,9 +33,12 @@ class MyApp extends StatelessWidget {
           child: ColoredBox(
             color: Theme.of(context).colorScheme.surface,
             child: Center(
-              child: ConstrainedBox(
-                constraints: BoxConstraints(maxWidth: 900),
-                child: child!,
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: context.gutter),
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 900),
+                  child: child!,
+                ),
               ),
             ),
           ),
