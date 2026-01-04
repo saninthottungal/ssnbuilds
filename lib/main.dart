@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
 
         fontFamily: 'minecraft',
       ),
-      home: const HomePage(),
+      home: const HeaderWidget(),
       builder: (context, child) {
         return ResponsiveBreakpoints.builder(
           breakpoints: [
