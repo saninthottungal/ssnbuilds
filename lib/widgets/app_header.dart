@@ -3,7 +3,9 @@ import 'package:flutter_gutter/flutter_gutter.dart';
 import 'package:ssnbuilds/enums/app_tabs.dart';
 
 class AppHeader extends StatelessWidget {
-  const AppHeader({super.key});
+  const AppHeader({super.key, required this.child});
+
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
@@ -36,11 +38,7 @@ class AppHeader extends StatelessWidget {
               ),
             ];
           },
-          body: ListView.builder(
-            itemBuilder: (context, index) {
-              return ListTile(title: Text('Item $index'));
-            },
-          ),
+          body: child,
         ),
       ),
     );
