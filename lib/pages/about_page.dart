@@ -43,9 +43,46 @@ class _DP extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
+        padding: EdgeInsets.all(context.gutterSmall),
         clipBehavior: Clip.antiAlias,
         decoration: BoxDecoration(
+          color: context.colorScheme.surfaceContainer,
           border: Border.all(color: context.colorScheme.outline),
+          borderRadius: BorderRadius.all(
+            Radius.circular(context.gutterTiny),
+          ),
+        ),
+
+        child: Column(
+          spacing: context.gutterTiny,
+          children: [
+            //* Dp Character Image
+            Container(
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: context.colorScheme.onPrimary,
+                  width: 4,
+                ),
+              ),
+              margin: EdgeInsets.symmetric(horizontal: context.gutterLarge),
+              child: Image.network(
+                'web/assets/images/dp_character.png',
+              ),
+            ),
+
+            Text(
+              "sanin t.",
+              style: context.textTheme.titleLarge?.copyWith(
+                fontFamily: 'minecraft_block',
+                color: context.colorScheme.onPrimaryContainer,
+              ),
+            ),
+
+            const Text("experience: 2 yrs"),
+            const Text("role: flutter dev"),
+            const Text("learning: C Programming"),
+            const Text("timezone: IST (UTC +5:30)"),
+          ],
         ),
       ),
     );
