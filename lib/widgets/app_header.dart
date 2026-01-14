@@ -43,7 +43,10 @@ class AppHeader extends StatelessWidget {
               ),
             ];
           },
-          body: shell,
+          body: Padding(
+            padding: EdgeInsets.only(top: context.gutter),
+            child: shell,
+          ),
         ),
       ),
     );
