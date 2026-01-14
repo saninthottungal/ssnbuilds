@@ -4,6 +4,7 @@ import 'package:ssnbuilds/constants/content_const.dart';
 import 'package:ssnbuilds/extensions/context_ext.dart';
 import 'package:ssnbuilds/extensions/list_ext.dart';
 import 'package:ssnbuilds/gen/assets.gen.dart';
+import 'package:ssnbuilds/widgets/content_wrapper.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
@@ -47,17 +48,8 @@ class _DP extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Container(
+      child: ContentWrapper(
         padding: EdgeInsets.all(context.gutterSmall),
-        clipBehavior: Clip.antiAlias,
-        decoration: BoxDecoration(
-          color: context.colorScheme.surfaceContainer,
-          border: Border.all(color: context.colorScheme.outline),
-          borderRadius: BorderRadius.all(
-            Radius.circular(context.gutterTiny),
-          ),
-        ),
-
         child: Column(
           spacing: context.gutterTiny,
           children: [
@@ -101,85 +93,14 @@ class _Bio extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       flex: 2,
-      child: Container(
-        clipBehavior: Clip.antiAlias,
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: context.colorScheme.outline,
-          ),
-          color: context.colorScheme.surfaceContainer,
-          borderRadius: BorderRadius.all(
-            Radius.circular(context.gutterTiny),
-          ),
+      child: ContentWrapper(
+        leading: Icons.info_outline,
+        title: "Bio Log",
+        padding: EdgeInsets.all(context.gutterSmall),
+        child: Text(
+          ContentConsts.about.bio,
+          style: context.textTheme.bodyLarge,
         ),
-        child: Column(
-          mainAxisAlignment: .start,
-          spacing: context.gutter,
-          children: [
-            //* Bio Header
-            const _BioHeader(),
-
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: context.gutterSmall),
-              child: Text(
-                ContentConsts.about.bio,
-                style: context.textTheme.bodyLarge,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _BioHeader extends StatelessWidget {
-  const _BioHeader();
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      clipBehavior: Clip.antiAlias,
-      decoration: BoxDecoration(
-        color: context.colorScheme.primaryContainer,
-        borderRadius: BorderRadius.vertical(
-          top: Radius.circular(context.gutterTiny),
-        ),
-
-        border: Border(
-          bottom: BorderSide(
-            color: context.colorScheme.outline,
-          ),
-        ),
-      ),
-      padding: EdgeInsets.symmetric(
-        horizontal: context.gutterSmall,
-        vertical: context.gutterTiny,
-      ),
-      child: Row(
-        spacing: context.gutterTiny,
-        children: [
-          Icon(
-            Icons.info_outline,
-            size: 14,
-            color: context.colorScheme.onPrimaryContainer,
-          ),
-          Text(
-            "Bio Log",
-            style: context.textTheme.titleSmall?.copyWith(
-              color: context.colorScheme.onPrimaryContainer,
-            ),
-          ),
-          const Spacer(),
-          Text(
-            "page 1 of 1",
-            style: context.textTheme.labelSmall?.copyWith(
-              color: context.colorScheme.onPrimaryContainer.withValues(
-                alpha: 0.5,
-              ),
-            ),
-          ),
-        ],
       ),
     );
   }
@@ -190,93 +111,27 @@ class _SkillsAndTech extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      clipBehavior: Clip.antiAlias,
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: context.colorScheme.outline,
-        ),
-        color: context.colorScheme.surfaceContainer,
-        borderRadius: BorderRadius.all(
-          Radius.circular(context.gutterTiny),
-        ),
-      ),
-      child: Column(
-        mainAxisAlignment: .start,
-        children: [
-          Container(
-            clipBehavior: Clip.antiAlias,
-            decoration: BoxDecoration(
-              color: context.colorScheme.primaryContainer,
-              borderRadius: BorderRadius.vertical(
-                top: Radius.circular(context.gutterTiny),
-              ),
+    return ContentWrapper(
+      leading: Icons.handyman_outlined,
+      title: 'Skills and Techs',
 
-              border: Border(
-                bottom: BorderSide(
-                  color: context.colorScheme.outline,
-                ),
-              ),
-            ),
-            padding: EdgeInsets.symmetric(
-              horizontal: context.gutterSmall,
-              vertical: context.gutterTiny,
-            ),
-            child: Row(
-              spacing: context.gutterTiny,
-              children: [
-                Icon(
-                  Icons.handyman_outlined,
-                  size: 14,
-                  color: context.colorScheme.onPrimaryContainer,
-                ),
-                Text(
-                  "Skills and Techs",
-                  style: context.textTheme.titleSmall?.copyWith(
-                    color: context.colorScheme.onPrimaryContainer,
-                  ),
-                ),
-                const Spacer(),
-                Text(
-                  "page 1 of 1",
-                  style: context.textTheme.labelSmall?.copyWith(
-                    color: context.colorScheme.onPrimaryContainer.withValues(
-                      alpha: 0.5,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
+      child: Padding(
+        padding: EdgeInsets.all(context.gutterSmall),
+        child: Wrap(
+          children: List.generate(
+            ContentConsts.about.skillsAndTechs.length,
+            (index) {
+              return ContentWrapper(
+                padding: EdgeInsets.all(context.gutterTiny),
+                margin: EdgeInsets.all(context.gutterTiny),
 
-          Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: context.gutterSmall,
-              vertical: context.gutter,
-            ),
-            child: Wrap(
-              children: List.generate(
-                ContentConsts.about.skillsAndTechs.length,
-                (index) {
-                  return Container(
-                    padding: EdgeInsets.all(context.gutterTiny),
-                    margin: EdgeInsets.all(context.gutterTiny),
-                    decoration: BoxDecoration(
-                      color: context.colorScheme.surfaceContainer,
-                      border: Border.all(color: context.colorScheme.outline),
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(context.gutterTiny),
-                      ),
-                    ),
-                    child: Text(
-                      ContentConsts.about.skillsAndTechs[index],
-                    ),
-                  );
-                },
-              ),
-            ),
+                child: Text(
+                  ContentConsts.about.skillsAndTechs[index],
+                ),
+              );
+            },
           ),
-        ],
+        ),
       ),
     );
   }
