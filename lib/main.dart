@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
+import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:ssnbuilds/router/app_router.dart';
 
 void main() {
+  usePathUrlStrategy();
   runApp(const MyApp());
 }
 
