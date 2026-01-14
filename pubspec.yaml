@@ -35,3 +35,10 @@ flutter:
       fonts:
         - asset: assets/fonts/minecraft/minecraft_block.ttf
           weight: 900
+  
+  assets:
+    - assets/bg/
+    - assets/fonts/
+    - assets/icons/
+    - assets/icons/
+    - assets/logo/
