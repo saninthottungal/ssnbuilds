@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
+import 'package:go_router/go_router.dart';
 import 'package:ssnbuilds/enums/app_tabs.dart';
+import 'package:ssnbuilds/extensions/context_ext.dart';
 
 class AppHeader extends StatelessWidget {
-  const AppHeader({super.key, required this.child});
+  const AppHeader({super.key, required this.shell});
 
-  final Widget child;
+  final StatefulNavigationShell shell;
 
   @override
   Widget build(BuildContext context) {
@@ -31,14 +33,17 @@ class AppHeader extends StatelessWidget {
                       const Spacer(),
 
                       //* Tabs
-                      const _Tabs(),
+                      _Tabs(
+                        currentIndex: shell.currentIndex,
+                        onChanged: shell.goBranch,
+                      ),
                     ],
                   ),
                 ),
               ),
             ];
           },
-          body: child,
+          body: shell,
         ),
       ),
     );
@@ -46,18 +51,31 @@ class AppHeader extends StatelessWidget {
 }
 
 class _Tabs extends StatelessWidget {
-  const _Tabs();
+  const _Tabs({
+    required this.currentIndex,
+    required this.onChanged,
+  });
+
+  final ValueChanged<int> onChanged;
+  final int currentIndex;
 
   @override
   Widget build(BuildContext context) {
-    return TabBar(
-      isScrollable: true,
-      dividerColor: Colors.transparent,
-      dividerHeight: 0,
-      indicatorWeight: 1,
-      tabs: List.generate(
+    return Row(
+      spacing: context.gutter,
+      mainAxisSize: MainAxisSize.min,
+      children: List.generate(
         AppTabs.values.length,
-        (index) => Tab(text: AppTabs.values[index].label),
+        (index) => GestureDetector(
+          onTap: () => onChanged(index),
+          behavior: HitTestBehavior.translucent,
+          child: Text(
+            AppTabs.values[index].label,
+            style: context.textTheme.titleMedium?.copyWith(
+              color: index == currentIndex ? context.colorScheme.primary : null,
+            ),
+          ),
+        ),
       ),
     );
   }

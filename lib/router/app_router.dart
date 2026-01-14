@@ -5,15 +5,37 @@ import 'package:ssnbuilds/pages/projects_page.dart';
 import 'package:ssnbuilds/widgets/app_header.dart';
 
 final router = GoRouter(
+  initialLocation: '/',
   routes: [
-    ShellRoute(
-      builder: (context, state, child) {
-        return AppHeader(child: child);
+    StatefulShellRoute.indexedStack(
+      builder: (context, state, navigationShell) {
+        return AppHeader(shell: navigationShell);
       },
-      routes: [
-        GoRoute(path: '/', builder: (_, _) => const HomePage()),
-        GoRoute(path: '/projects', builder: (_, _) => const ProjectsPage()),
-        GoRoute(path: '/about', builder: (_, _) => const AboutPage()),
+      branches: [
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: '/',
+              builder: (_, _) => const HomePage(),
+            ),
+          ],
+        ),
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: '/builds',
+              builder: (_, _) => const ProjectsPage(),
+            ),
+          ],
+        ),
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: '/about',
+              builder: (_, _) => const AboutPage(),
+            ),
+          ],
+        ),
       ],
     ),
   ],

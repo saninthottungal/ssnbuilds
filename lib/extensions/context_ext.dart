@@ -7,4 +7,7 @@ extension ContextExt on BuildContext {
       ResponsiveBreakpoints.of(this);
 
   bool get isMobile => responsiveData.isMobile;
+
+  ColorScheme get colorScheme => Theme.of(this).colorScheme;
+  TextTheme get textTheme => Theme.of(this).textTheme;
 }
