@@ -17,6 +17,9 @@ class AboutPage extends StatelessWidget {
 
         //* Skills and Technologies
         const _SkillsAndTech(),
+
+        //* Experience
+        const _Experience(),
       ].separatedBy(const Gutter()),
     );
   }
@@ -49,7 +52,6 @@ class _DP extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: ContentWrapper(
-        padding: EdgeInsets.all(context.gutterSmall),
         child: Column(
           spacing: context.gutterTiny,
           children: [
@@ -96,7 +98,6 @@ class _Bio extends StatelessWidget {
       child: ContentWrapper(
         leading: Icons.info_outline,
         title: "Bio Log",
-        padding: EdgeInsets.all(context.gutterSmall),
         child: Text(
           ContentConsts.about.bio,
           style: context.textTheme.bodyLarge,
@@ -114,25 +115,40 @@ class _SkillsAndTech extends StatelessWidget {
     return ContentWrapper(
       leading: Icons.handyman_outlined,
       title: 'Skills and Techs',
+      child: Wrap(
+        children: List.generate(
+          ContentConsts.about.skillsAndTechs.length,
+          (index) {
+            return ContentWrapper(
+              padding: EdgeInsets.all(context.gutterTiny),
+              margin: EdgeInsets.all(context.gutterTiny),
 
-      child: Padding(
-        padding: EdgeInsets.all(context.gutterSmall),
-        child: Wrap(
-          children: List.generate(
-            ContentConsts.about.skillsAndTechs.length,
-            (index) {
-              return ContentWrapper(
-                padding: EdgeInsets.all(context.gutterTiny),
-                margin: EdgeInsets.all(context.gutterTiny),
-
-                child: Text(
-                  ContentConsts.about.skillsAndTechs[index],
-                ),
-              );
-            },
-          ),
+              child: Text(
+                ContentConsts.about.skillsAndTechs[index],
+              ),
+            );
+          },
         ),
       ),
     );
+  }
+}
+
+class _Experience extends StatelessWidget {
+  const _Experience();
+
+  @override
+  Widget build(BuildContext context) {
+    // return const ContentWrapper(
+    //   leading: Icons.work_outline,
+    //   title: 'Experience',
+    //   child: Column(
+    //     children: [
+    //       ContentWrapper(title: 'Flutter Developer', child: SizedBox()),
+    //     ],
+    //   ),
+    // );
+
+    return const SizedBox();
   }
 }

@@ -90,7 +90,7 @@ class ContentWrapper extends StatelessWidget {
 
           //* Child
           Padding(
-            padding: padding ?? EdgeInsets.zero,
+            padding: padding ?? EdgeInsets.all(context.gutterSmall),
             child: child,
           ),
         ],
