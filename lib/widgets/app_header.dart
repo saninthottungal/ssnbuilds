@@ -33,11 +33,12 @@ class AppHeader extends StatelessWidget {
                       //* Spacer
                       const Spacer(),
 
-                      //* Tabs
-                      _Tabs(
-                        currentIndex: shell.currentIndex,
-                        onChanged: shell.goBranch,
-                      ),
+                      //* Tabs - commented temporarly
+                      //TODO - implement tab screens and uncomment this
+                      // _Tabs(
+                      //   currentIndex: shell.currentIndex,
+                      //   onChanged: shell.goBranch,
+                      // ),
                     ],
                   ),
                 ),

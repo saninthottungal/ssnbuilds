@@ -12,26 +12,35 @@ final router = GoRouter(
         return AppHeader(shell: navigationShell);
       },
       branches: [
+        //TODO - implement tab screens and uncomment this
+        // StatefulShellBranch(
+        //   routes: [
+        //     GoRoute(
+        //       path: '/',
+        //       builder: (_, _) => const HomePage(),
+        //     ),
+        //   ],
+        // ),
+        // StatefulShellBranch(
+        //   routes: [
+        //     GoRoute(
+        //       path: '/builds',
+        //       builder: (_, _) => const ProjectsPage(),
+        //     ),
+        //   ],
+        // ),
+        // StatefulShellBranch(
+        //   routes: [
+        //     GoRoute(
+        //       path: '/about',
+        //       builder: (_, _) => const AboutPage(),
+        //     ),
+        //   ],
+        // ),
         StatefulShellBranch(
           routes: [
             GoRoute(
               path: '/',
-              builder: (_, _) => const HomePage(),
-            ),
-          ],
-        ),
-        StatefulShellBranch(
-          routes: [
-            GoRoute(
-              path: '/builds',
-              builder: (_, _) => const ProjectsPage(),
-            ),
-          ],
-        ),
-        StatefulShellBranch(
-          routes: [
-            GoRoute(
-              path: '/about',
               builder: (_, _) => const AboutPage(),
             ),
           ],
