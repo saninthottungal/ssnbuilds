@@ -19,7 +19,7 @@ class _About {
   final String bio = '''
 I'm a software developer primarily building mobile apps with flutter. and seriously, i love doing this...♥
 
-Right now, I'm working as a Flutter Developer while also preparing for a masters and hoping to get into a good college.
+Right now, I'm working as a Flutter Developer while also preparing for my masters and hoping to get into a good college.
 i'm into C programming as well, and been doing some flutter and C interoperability lately, fun stuff.
 
 By the way, have you read "Code : The Hidden Language of Computer Hardware and Software" by Charles Petzold?, it's a great read--i'm on Chapter 11 now.
