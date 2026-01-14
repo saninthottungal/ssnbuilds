@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
 import 'package:ssnbuilds/constants/content_const.dart';
 import 'package:ssnbuilds/extensions/context_ext.dart';
+import 'package:ssnbuilds/extensions/list_ext.dart';
 import 'package:ssnbuilds/gen/assets.gen.dart';
 
 class AboutPage extends StatelessWidget {
@@ -12,7 +13,10 @@ class AboutPage extends StatelessWidget {
     return ListView(
       children: [
         const _DpAndBio(),
-      ],
+
+        //* Skills and Technologies
+        const _SkillsAndTech(),
+      ].separatedBy(const Gutter()),
     );
   }
 }
@@ -156,7 +160,7 @@ class _BioHeader extends StatelessWidget {
         spacing: context.gutterTiny,
         children: [
           Icon(
-            Icons.info,
+            Icons.info_outline,
             size: 14,
             color: context.colorScheme.onPrimaryContainer,
           ),
@@ -172,6 +176,103 @@ class _BioHeader extends StatelessWidget {
             style: context.textTheme.labelSmall?.copyWith(
               color: context.colorScheme.onPrimaryContainer.withValues(
                 alpha: 0.5,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _SkillsAndTech extends StatelessWidget {
+  const _SkillsAndTech();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      clipBehavior: Clip.antiAlias,
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: context.colorScheme.outline,
+        ),
+        color: context.colorScheme.surfaceContainer,
+        borderRadius: BorderRadius.all(
+          Radius.circular(context.gutterTiny),
+        ),
+      ),
+      child: Column(
+        mainAxisAlignment: .start,
+        children: [
+          Container(
+            clipBehavior: Clip.antiAlias,
+            decoration: BoxDecoration(
+              color: context.colorScheme.primaryContainer,
+              borderRadius: BorderRadius.vertical(
+                top: Radius.circular(context.gutterTiny),
+              ),
+
+              border: Border(
+                bottom: BorderSide(
+                  color: context.colorScheme.outline,
+                ),
+              ),
+            ),
+            padding: EdgeInsets.symmetric(
+              horizontal: context.gutterSmall,
+              vertical: context.gutterTiny,
+            ),
+            child: Row(
+              spacing: context.gutterTiny,
+              children: [
+                Icon(
+                  Icons.handyman_outlined,
+                  size: 14,
+                  color: context.colorScheme.onPrimaryContainer,
+                ),
+                Text(
+                  "Skills and Techs",
+                  style: context.textTheme.titleSmall?.copyWith(
+                    color: context.colorScheme.onPrimaryContainer,
+                  ),
+                ),
+                const Spacer(),
+                Text(
+                  "page 1 of 1",
+                  style: context.textTheme.labelSmall?.copyWith(
+                    color: context.colorScheme.onPrimaryContainer.withValues(
+                      alpha: 0.5,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: context.gutterSmall,
+              vertical: context.gutter,
+            ),
+            child: Wrap(
+              children: List.generate(
+                ContentConsts.about.skillsAndTechs.length,
+                (index) {
+                  return Container(
+                    padding: EdgeInsets.all(context.gutterTiny),
+                    margin: EdgeInsets.all(context.gutterTiny),
+                    decoration: BoxDecoration(
+                      color: context.colorScheme.surfaceContainer,
+                      border: Border.all(color: context.colorScheme.outline),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(context.gutterTiny),
+                      ),
+                    ),
+                    child: Text(
+                      ContentConsts.about.skillsAndTechs[index],
+                    ),
+                  );
+                },
               ),
             ),
           ),

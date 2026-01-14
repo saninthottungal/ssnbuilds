@@ -24,4 +24,19 @@ i'm into C programming as well, and been doing some flutter and C interoperabili
 
 By the way, have you read "Code : The Hidden Language of Computer Hardware and Software" by Charles Petzold?, it's a great read--i'm on Chapter 11 now.
 ''';
+
+  final List<String> skillsAndTechs = const [
+    'Dart',
+    'Flutter',
+    'C/C++',
+    'Bash',
+    'SQL',
+    'HTML',
+    'CSS',
+    'Flutter',
+    'Git',
+    'MySQL',
+    'PostgreSQL',
+    'SQLite',
+  ];
 }
