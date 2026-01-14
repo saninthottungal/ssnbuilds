@@ -3,6 +3,7 @@ import 'package:flutter_gutter/flutter_gutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ssnbuilds/enums/app_tabs.dart';
 import 'package:ssnbuilds/extensions/context_ext.dart';
+import 'package:ssnbuilds/gen/assets.gen.dart';
 
 class AppHeader extends StatelessWidget {
   const AppHeader({super.key, required this.shell});
@@ -23,8 +24,8 @@ class AppHeader extends StatelessWidget {
                   child: Row(
                     children: [
                       //* Logo
-                      Image.network(
-                        'web/assets/logo/text_logo.png',
+                      Image.asset(
+                        Assets.logo.textLogo.path,
                         width: 200,
                         height: 50,
                       ),

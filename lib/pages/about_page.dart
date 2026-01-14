@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
 import 'package:ssnbuilds/constants/content_const.dart';
 import 'package:ssnbuilds/extensions/context_ext.dart';
+import 'package:ssnbuilds/gen/assets.gen.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
@@ -65,8 +66,8 @@ class _DP extends StatelessWidget {
                 ),
               ),
               margin: EdgeInsets.symmetric(horizontal: context.gutterLarge),
-              child: Image.network(
-                'web/assets/images/dp_character.png',
+              child: Image.asset(
+                Assets.images.dpCharacter.path,
               ),
             ),
 
