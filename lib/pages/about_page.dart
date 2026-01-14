@@ -152,3 +152,12 @@ class _Experience extends StatelessWidget {
     return const SizedBox();
   }
 }
+
+class _Education extends StatelessWidget {
+  const _Education();
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
