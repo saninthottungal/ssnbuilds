@@ -39,6 +39,10 @@ class AppHeader extends StatelessWidget {
                       //   currentIndex: shell.currentIndex,
                       //   onChanged: shell.goBranch,
                       // ),
+                      ElevatedButton(
+                        onPressed: () {},
+                        child: const Text("download cv"),
+                      ),
                     ],
                   ),
                 ),
