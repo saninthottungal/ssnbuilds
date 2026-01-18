@@ -163,17 +163,35 @@ class _ExperienceAndEducation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
-      child: IntrinsicHeight(
-        child: Row(
-          spacing: context.gutter,
-          children: [
-            //* Experience
-            const _Experience(),
+      child: LayoutBuilder(
+        builder: (context, _) {
+          if (context.isMobile) {
+            return Column(
+              mainAxisSize: MainAxisSize.min,
+              spacing: context.gutter,
+              children: const [
+                //* Experience
+                _Experience(),
 
-            //* Education
-            const _Education(),
-          ],
-        ),
+                //* Education
+                _Education(),
+              ],
+            );
+          } else {
+            return IntrinsicHeight(
+              child: Row(
+                spacing: context.gutter,
+                children: [
+                  //* Experience
+                  const Expanded(child: _Experience()),
+
+                  //* Education
+                  const Expanded(child: _Education()),
+                ],
+              ),
+            );
+          }
+        },
       ),
     );
   }
@@ -184,28 +202,26 @@ class _Experience extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Expanded(
-      child: ContentWrapper(
-        leading: Icons.work_outline,
-        title: 'Experience',
-        child: Column(
-          children: [
-            ContentWrapper(
-              title: 'Flutter Developer',
-              contentCrossAxisAlignment: .start,
-              trailing: 'june 2024 - current',
-              child: Column(
-                crossAxisAlignment: .start,
-                children: [
-                  Text("Company: Paiteq pvt limited"),
-                  Text("Employment status : Full-time"),
-                  Text("Location: Remote"),
-                  Text("Working on Nyburs - An intuitive Social media app"),
-                ],
-              ),
+    return const ContentWrapper(
+      leading: Icons.work_outline,
+      title: 'Experience',
+      child: Column(
+        children: [
+          ContentWrapper(
+            title: 'Flutter Developer',
+            contentCrossAxisAlignment: .start,
+            trailing: 'june 2024 - current',
+            child: Column(
+              crossAxisAlignment: .start,
+              children: [
+                Text("Company: Paiteq pvt limited"),
+                Text("Employment status : Full-time"),
+                Text("Location: Remote"),
+                Text("Working on Nyburs - An intuitive Social media app"),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -216,29 +232,27 @@ class _Education extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ContentWrapper(
-        leading: Icons.menu_book_rounded,
-        title: 'Education',
-        child: Column(
-          spacing: context.gutterSmall,
-          children: [
-            const ContentWrapper(
-              title: "Bachelor's degree",
-              contentCrossAxisAlignment: .start,
-              trailing: 'nov 2021 - apr 2024',
-              child: Column(
-                crossAxisAlignment: .start,
-                children: [
-                  Text("Institution: Calicut University"),
-                  Text("Major: B.Sc in Computer Science"),
-                  Text("Minor: Discrete Mathematics"),
-                  Text("Location: Malappuram, Kerala"),
-                ],
-              ),
+    return ContentWrapper(
+      leading: Icons.menu_book_rounded,
+      title: 'Education',
+      child: Column(
+        spacing: context.gutterSmall,
+        children: [
+          const ContentWrapper(
+            title: "Bachelor's degree",
+            contentCrossAxisAlignment: .start,
+            trailing: 'nov 2021 - apr 2024',
+            child: Column(
+              crossAxisAlignment: .start,
+              children: [
+                Text("Institution: Calicut University"),
+                Text("Major: B.Sc in Computer Science"),
+                Text("Minor: Discrete Mathematics"),
+                Text("Location: Malappuram, Kerala"),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
