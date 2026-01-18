@@ -1,7 +1,8 @@
-enum AppTabs {
+enum AppTab {
   home,
   builds,
-  about;
+  about
+  ;
 
   String get label => switch (this) {
     home => 'Home',

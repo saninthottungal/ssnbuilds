@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 
-class ProjectsPage extends StatelessWidget {
-  const ProjectsPage({super.key});
+class BuildsPage extends StatelessWidget {
+  const BuildsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: Text("Projects Page"));
+    return const SliverToBoxAdapter(
+      child: Center(
+        child: Text("Projects Page"),
+      ),
+    );
   }
 }

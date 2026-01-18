@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:ssnbuilds/pages/about_page.dart';
-import 'package:ssnbuilds/widgets/app_header.dart';
+import 'package:ssnbuilds/pages/app_container.dart';
+import 'package:ssnbuilds/widgets/animated_intro.dart';
 
 void main() {
   usePathUrlStrategy();
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
 
         fontFamily: 'minecraft',
       ),
-      home: const AppHeader(sliver: AboutPage()),
+      home: const AppContainer(),
       builder: (context, child) {
         return ResponsiveBreakpoints.builder(
           breakpoints: [
@@ -48,49 +48,6 @@ class MyApp extends StatelessWidget {
           ),
         );
       },
-    );
-  }
-}
-
-class AnimatedIntro extends StatefulWidget {
-  final Widget child;
-  final Duration duration;
-
-  const AnimatedIntro({
-    super.key,
-    required this.child,
-    this.duration = const Duration(milliseconds: 500),
-  });
-
-  @override
-  State<AnimatedIntro> createState() => _AnimatedIntroState();
-}
-
-class _AnimatedIntroState extends State<AnimatedIntro> {
-  bool _isVisible = false;
-
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      setState(() {
-        _isVisible = true;
-      });
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return AnimatedOpacity(
-      opacity: _isVisible ? 1.0 : 0.0,
-      duration: widget.duration,
-      curve: Curves.easeInOut,
-      child: AnimatedScale(
-        scale: _isVisible ? 1.0 : 0.9,
-        duration: widget.duration,
-        curve: Curves.easeInOut,
-        child: widget.child,
-      ),
     );
   }
 }

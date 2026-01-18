@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
-import 'package:ssnbuilds/constants/url_const.dart';
 import 'package:ssnbuilds/enums/app_tabs.dart';
 import 'package:ssnbuilds/extensions/context_ext.dart';
 import 'package:ssnbuilds/gen/assets.gen.dart';
+import 'package:ssnbuilds/pages/about_page.dart';
+import 'package:ssnbuilds/pages/home_page.dart';
+import 'package:ssnbuilds/pages/projects_page.dart';
 import 'package:ssnbuilds/widgets/social_media_row.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-class AppHeader extends StatelessWidget {
-  const AppHeader({super.key, required this.sliver});
+class AppContainer extends StatefulWidget {
+  const AppContainer({super.key});
 
-  final Widget sliver;
+  @override
+  State<AppContainer> createState() => _AppContainerState();
+}
+
+class _AppContainerState extends State<AppContainer> {
+  AppTab currentTab = AppTab.about;
 
   @override
   Widget build(BuildContext context) {
@@ -32,27 +38,34 @@ class AppHeader extends StatelessWidget {
                   //* Spacer
                   const Spacer(),
 
-                  //* Tabs - commented temporarly
-                  //TODO - implement tab screens and uncomment this
-                  // _Tabs(
-                  //   currentIndex: shell.currentIndex,
-                  //   onChanged: shell.goBranch,
-                  // ),
-                  ElevatedButton(
-                    onPressed: () {
-                      final uri = Uri.parse(URLConsts.resume);
-                      launchUrl(uri, mode: .externalApplication);
-                    },
-                    child: const Text("download cv"),
+                  _Tabs(
+                    currentTab: currentTab,
+                    onChanged: (tab) => setState(
+                      () => currentTab = tab,
+                    ),
                   ),
+
+                  //
+                  // ElevatedButton(
+                  //   onPressed: () {
+                  //     final uri = Uri.parse(URLConsts.resume);
+                  //     launchUrl(uri, mode: .externalApplication);
+                  //   },
+                  //   child: const Text("download cv"),
+                  // ),
                 ],
               ),
             ),
           ),
 
+          //* The main body content
           SliverPadding(
             padding: EdgeInsets.symmetric(vertical: context.gutter),
-            sliver: sliver,
+            sliver: switch (currentTab) {
+              .home => const HomePage(),
+              .builds => const BuildsPage(),
+              .about => const AboutPage(),
+            },
           ),
 
           //* footer
@@ -82,12 +95,12 @@ class AppHeader extends StatelessWidget {
 
 class _Tabs extends StatelessWidget {
   const _Tabs({
-    required this.currentIndex,
+    required this.currentTab,
     required this.onChanged,
   });
 
-  final ValueChanged<int> onChanged;
-  final int currentIndex;
+  final ValueChanged<AppTab> onChanged;
+  final AppTab currentTab;
 
   @override
   Widget build(BuildContext context) {
@@ -95,14 +108,16 @@ class _Tabs extends StatelessWidget {
       spacing: context.gutter,
       mainAxisSize: MainAxisSize.min,
       children: List.generate(
-        AppTabs.values.length,
+        AppTab.values.length,
         (index) => GestureDetector(
-          onTap: () => onChanged(index),
+          onTap: () => onChanged(AppTab.values[index]),
           behavior: HitTestBehavior.translucent,
           child: Text(
-            AppTabs.values[index].label,
+            AppTab.values[index].label,
             style: context.textTheme.titleMedium?.copyWith(
-              color: index == currentIndex ? context.colorScheme.primary : null,
+              color: index == AppTab.values.indexOf(currentTab)
+                  ? context.colorScheme.primary
+                  : null,
             ),
           ),
         ),
