@@ -5,10 +5,8 @@ class BuildsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SliverToBoxAdapter(
-      child: Center(
-        child: Text("Projects Page"),
-      ),
+    return SliverMainAxisGroup(
+      slivers: [],
     );
   }
 }

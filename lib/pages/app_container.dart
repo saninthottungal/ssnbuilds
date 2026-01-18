@@ -5,7 +5,7 @@ import 'package:ssnbuilds/extensions/context_ext.dart';
 import 'package:ssnbuilds/gen/assets.gen.dart';
 import 'package:ssnbuilds/pages/about_page.dart';
 import 'package:ssnbuilds/pages/home_page.dart';
-import 'package:ssnbuilds/pages/projects_page.dart';
+import 'package:ssnbuilds/pages/builds_page.dart';
 import 'package:ssnbuilds/widgets/social_media_row.dart';
 
 class AppContainer extends StatefulWidget {
@@ -109,18 +109,27 @@ class _Tabs extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: List.generate(
         AppTab.values.length,
-        (index) => GestureDetector(
-          onTap: () => onChanged(AppTab.values[index]),
-          behavior: HitTestBehavior.translucent,
-          child: Text(
-            AppTab.values[index].label,
-            style: context.textTheme.titleMedium?.copyWith(
-              color: index == AppTab.values.indexOf(currentTab)
-                  ? context.colorScheme.primary
-                  : null,
-            ),
-          ),
-        ),
+        (index) {
+          final color = index == AppTab.values.indexOf(currentTab)
+              ? context.colorScheme.primary
+              : null;
+          return GestureDetector(
+            onTap: () => onChanged(AppTab.values[index]),
+            behavior: HitTestBehavior.translucent,
+            child: context.isMobile
+                ? Icon(
+                    AppTab.values[index].icon,
+                    color: color,
+                    size: 20,
+                  )
+                : Text(
+                    AppTab.values[index].label,
+                    style: context.textTheme.titleMedium?.copyWith(
+                      color: color,
+                    ),
+                  ),
+          );
+        },
       ),
     );
   }
