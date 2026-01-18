@@ -112,22 +112,35 @@ class _Tabs extends StatelessWidget {
         (index) {
           final color = index == AppTab.values.indexOf(currentTab)
               ? context.colorScheme.primary
-              : null;
+              : context.colorScheme.onSurface;
+
           return GestureDetector(
             onTap: () => onChanged(AppTab.values[index]),
             behavior: HitTestBehavior.translucent,
-            child: context.isMobile
-                ? Icon(
+            child: TweenAnimationBuilder(
+              tween: ColorTween(
+                begin: context.colorScheme.onSurface,
+                end: color,
+              ),
+              duration: const Duration(milliseconds: 300),
+              curve: Curves.easeInOut,
+              builder: (context, color, _) {
+                if (context.isMobile) {
+                  return Icon(
                     AppTab.values[index].icon,
                     color: color,
                     size: 20,
-                  )
-                : Text(
+                  );
+                } else {
+                  return Text(
                     AppTab.values[index].label,
                     style: context.textTheme.titleMedium?.copyWith(
                       color: color,
                     ),
-                  ),
+                  );
+                }
+              },
+            ),
           );
         },
       ),
