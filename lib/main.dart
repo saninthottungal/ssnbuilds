@@ -7,6 +7,7 @@ import 'package:ssnbuilds/widgets/app_header.dart';
 
 void main() {
   usePathUrlStrategy();
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
