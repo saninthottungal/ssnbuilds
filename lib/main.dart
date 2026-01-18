@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:ssnbuilds/router/app_router.dart';
+import 'package:ssnbuilds/pages/about_page.dart';
+import 'package:ssnbuilds/widgets/app_header.dart';
 
 void main() {
   usePathUrlStrategy();
@@ -14,8 +15,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: router,
+    return MaterialApp(
       title: "ssnbuilds",
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
 
         fontFamily: 'minecraft',
       ),
+      home: const AppHeader(sliver: AboutPage()),
       builder: (context, child) {
         return ResponsiveBreakpoints.builder(
           breakpoints: [

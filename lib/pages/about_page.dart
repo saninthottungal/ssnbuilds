@@ -11,8 +11,8 @@ class AboutPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
+    return SliverMainAxisGroup(
+      slivers: [
         const _DpAndBio(),
 
         //* Skills and Technologies
@@ -20,7 +20,7 @@ class AboutPage extends StatelessWidget {
 
         //* Experience
         const _Experience(),
-      ].separatedBy(const Gutter()),
+      ].separatedBy(const SliverToBoxAdapter(child: Gutter())),
     );
   }
 }
@@ -30,16 +30,18 @@ class _DpAndBio extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IntrinsicHeight(
-      child: Row(
-        spacing: context.gutter,
-        children: [
-          //* DP
-          const _DP(),
+    return SliverToBoxAdapter(
+      child: IntrinsicHeight(
+        child: Row(
+          spacing: context.gutter,
+          children: [
+            //* DP
+            const _DP(),
 
-          //* Bio
-          const _Bio(),
-        ],
+            //* Bio
+            const _Bio(),
+          ],
+        ),
       ),
     );
   }
@@ -112,22 +114,24 @@ class _SkillsAndTech extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ContentWrapper(
-      leading: Icons.handyman_outlined,
-      title: 'Skills and Techs',
-      child: Wrap(
-        children: List.generate(
-          ContentConsts.about.skillsAndTechs.length,
-          (index) {
-            return ContentWrapper(
-              padding: EdgeInsets.all(context.gutterTiny),
-              margin: EdgeInsets.all(context.gutterTiny),
+    return SliverToBoxAdapter(
+      child: ContentWrapper(
+        leading: Icons.handyman_outlined,
+        title: 'Skills and Techs',
+        child: Wrap(
+          children: List.generate(
+            ContentConsts.about.skillsAndTechs.length,
+            (index) {
+              return ContentWrapper(
+                padding: EdgeInsets.all(context.gutterTiny),
+                margin: EdgeInsets.all(context.gutterTiny),
 
-              child: Text(
-                ContentConsts.about.skillsAndTechs[index],
-              ),
-            );
-          },
+                child: Text(
+                  ContentConsts.about.skillsAndTechs[index],
+                ),
+              );
+            },
+          ),
         ),
       ),
     );
@@ -149,7 +153,7 @@ class _Experience extends StatelessWidget {
     //   ),
     // );
 
-    return const SizedBox();
+    return SliverToBoxAdapter(child: const SizedBox());
   }
 }
 
