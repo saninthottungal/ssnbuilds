@@ -42,8 +42,11 @@ class BuildsPage extends StatelessWidget {
         ),
 
         SliverGrid.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: context.isMobile ? 1 : 2,
+            mainAxisSpacing: context.gutter,
+            crossAxisSpacing: context.gutter,
+            mainAxisExtent: 270,
           ),
           itemCount: _flutterProjects.length,
           itemBuilder: (context, index) {

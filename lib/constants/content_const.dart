@@ -16,7 +16,7 @@ class _Builds {
   final String pennyBoxDesc = '''
 A personal finance management tool designed to track and categorize daily financial activity. 
 The application enables users to log income and expenses, assign transactions to specific categories, and monitor their net balance. 
-It provides a clear breakdown of cash flow through a structured history and data visualization
+It provides a clear breakdown of cash flow through a structured history and data visualization.
 ''';
 
   final String fairFlightsDesc = '''
