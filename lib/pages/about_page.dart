@@ -217,7 +217,7 @@ class _Experience extends StatelessWidget {
           ContentWrapper(
             title: 'Flutter Developer',
             contentCrossAxisAlignment: .start,
-            trailing: 'june 2024 - current',
+            trailing: 'june 2024 - present',
             child: Column(
               crossAxisAlignment: .start,
               children: [

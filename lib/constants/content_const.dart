@@ -12,6 +12,19 @@ class _Home {
 
 class _Builds {
   const _Builds();
+
+  final String pennyBoxDesc = '''
+A personal finance management tool designed to track and categorize daily financial activity. 
+The application enables users to log income and expenses, assign transactions to specific categories, and monitor their net balance. 
+It provides a clear breakdown of cash flow through a structured history and data visualization
+''';
+
+  final String fairFlightsDesc = '''
+A flight reservation system that allows users to search, compare, and pre-book air travel. 
+The app enables users to select departure and arrival locations, specify travel dates, and browse available flights. 
+It streamlines the booking process by managing passenger details and seat preferences, 
+providing a centralized platform to secure tickets before travel.
+''';
 }
 
 class _About {
