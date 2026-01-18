@@ -32,17 +32,35 @@ class _DpAndBio extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
-      child: IntrinsicHeight(
-        child: Row(
-          spacing: context.gutter,
-          children: [
-            //* DP
-            const _DP(),
+      child: LayoutBuilder(
+        builder: (context, _) {
+          if (context.isMobile) {
+            return Column(
+              mainAxisSize: MainAxisSize.min,
+              spacing: context.gutter,
+              children: const [
+                _DP(),
+                _Bio(),
+              ],
+            );
+          } else {
+            return IntrinsicHeight(
+              child: Row(
+                spacing: context.gutter,
+                children: [
+                  //* DP
+                  const Expanded(child: _DP()),
 
-            //* Bio
-            const _Bio(),
-          ],
-        ),
+                  //* Bio
+                  const Expanded(
+                    flex: 2,
+                    child: _Bio(),
+                  ),
+                ],
+              ),
+            );
+          }
+        },
       ),
     );
   }
@@ -53,42 +71,40 @@ class _DP extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ContentWrapper(
-        child: Column(
-          spacing: context.gutterTiny,
-          children: [
-            //* Dp Character Image
-            Container(
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: context.colorScheme.onPrimary,
-                  width: 4,
-                ),
-              ),
-              margin: EdgeInsets.symmetric(horizontal: context.gutterLarge),
-              child: Image.asset(
-                Assets.images.dpCharacter.path,
+    return ContentWrapper(
+      child: Column(
+        spacing: context.gutterTiny,
+        children: [
+          //* Dp Character Image
+          Container(
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: context.colorScheme.onPrimary,
+                width: 4,
               ),
             ),
-
-            Text(
-              "sanin t.",
-              style: context.textTheme.titleLarge?.copyWith(
-                fontFamily: 'minecraft_block',
-                color: context.colorScheme.onPrimaryContainer,
-              ),
+            margin: EdgeInsets.symmetric(horizontal: context.gutterLarge),
+            child: Image.asset(
+              Assets.images.dpCharacter.path,
             ),
+          ),
 
-            const Text("experience: 2 yrs"),
-            const Text("role: flutter dev"),
-            const Text("learning: C Programming"),
-            const Text("timezone: IST (UTC +5:30)"),
+          Text(
+            "sanin t.",
+            style: context.textTheme.titleLarge?.copyWith(
+              fontFamily: 'minecraft_block',
+              color: context.colorScheme.onPrimaryContainer,
+            ),
+          ),
 
-            //social media row
-            const SocialMediaRow(),
-          ],
-        ),
+          const Text("experience: 2 yrs"),
+          const Text("role: flutter dev"),
+          const Text("learning: C Programming"),
+          const Text("timezone: IST (UTC +5:30)"),
+
+          //social media row
+          const SocialMediaRow(),
+        ],
       ),
     );
   }
@@ -99,16 +115,13 @@ class _Bio extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: 2,
-      child: ContentWrapper(
-        leading: Icons.info_outline,
-        title: "Bio Log",
-        trailing: "page 1 of 1",
-        child: Text(
-          ContentConsts.about.bio,
-          style: context.textTheme.bodyLarge,
-        ),
+    return ContentWrapper(
+      leading: Icons.info_outline,
+      title: "Bio Log",
+      trailing: "page 1 of 1",
+      child: Text(
+        ContentConsts.about.bio,
+        style: context.textTheme.bodyLarge,
       ),
     );
   }
@@ -124,13 +137,14 @@ class _SkillsAndTech extends StatelessWidget {
         leading: Icons.handyman_outlined,
         title: 'Skills and Techs',
         child: Wrap(
+          alignment: WrapAlignment.center,
           children: List.generate(
             ContentConsts.about.skillsAndTechs.length,
             (index) {
               return ContentWrapper(
                 padding: EdgeInsets.all(context.gutterTiny),
-                margin: EdgeInsets.all(context.gutterTiny),
 
+                margin: EdgeInsets.all(context.gutterTiny),
                 child: Text(
                   ContentConsts.about.skillsAndTechs[index],
                 ),
