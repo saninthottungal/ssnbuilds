@@ -50,8 +50,20 @@ class AppHeader extends StatelessWidget {
           ),
 
           SliverPadding(
-            padding: EdgeInsets.only(top: context.gutter),
+            padding: EdgeInsets.symmetric(vertical: context.gutter),
             sliver: sliver,
+          ),
+
+          //* footer
+          SliverFillRemaining(
+            hasScrollBody: false,
+            child: Container(
+              alignment: Alignment.bottomCenter,
+              margin: EdgeInsets.symmetric(vertical: context.gutter),
+              child: const Text(
+                "©2026 ssnbuilds by Sanin. All rights reserved.",
+              ),
+            ),
           ),
         ],
       ),
