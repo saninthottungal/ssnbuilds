@@ -14,4 +14,9 @@ class URLConsts {
   static const flutterSPCGithub =
       'https://github.com/saninthottungal/flutter_stone_paper_scissors';
   static const iBusGithub = 'https://github.com/saninthottungal/iBus';
+
+  static const cTicTacToeGithub =
+      'https://github.com/saninthottungal/c-projects/tree/main/tic_tac_toe';
+  static const cRockPaperScissorsGithub =
+      'https://github.com/saninthottungal/rock-paper-scissors-in-C';
 }

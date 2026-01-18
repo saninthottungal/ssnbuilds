@@ -3,7 +3,6 @@ import 'package:flutter_gutter/flutter_gutter.dart';
 import 'package:ssnbuilds/constants/content_const.dart';
 import 'package:ssnbuilds/constants/url_const.dart';
 import 'package:ssnbuilds/extensions/context_ext.dart';
-import 'package:ssnbuilds/gen/assets.gen.dart';
 import 'package:ssnbuilds/models/project_model.dart';
 import 'package:ssnbuilds/widgets/content_wrapper.dart';
 import 'package:ssnbuilds/widgets/github_logo_text.dart';
@@ -34,13 +33,14 @@ class BuildsPage extends StatelessWidget {
 
         SliverToBoxAdapter(
           child: Text(
-            "Flutter",
+            "Flutter Builds",
             style: context.textTheme.titleLarge?.copyWith(
               fontFamily: 'minecraft_block',
             ),
           ),
         ),
 
+        //* flutter projects grid
         SliverGrid.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: context.isMobile ? 1 : 2,
@@ -68,113 +68,42 @@ class BuildsPage extends StatelessWidget {
         ),
 
         //* spacing
-        const SliverToBoxAdapter(child: Gutter()),
+        const SliverToBoxAdapter(child: Gutter.large()),
 
         SliverToBoxAdapter(
-          child: ContentWrapper(
-            leading: Icons.code,
-            title: 'C',
-            child: Column(
-              children: [
-                IntrinsicHeight(
-                  child: Row(
-                    spacing: context.gutterSmall,
-                    children: [
-                      //* Penny Box
-                      Expanded(
-                        child: ContentWrapper(
-                          leading: Icons.close,
-                          title: 'Tic-Tac-Toe',
-                          trailingWidget: GestureDetector(
-                            behavior: HitTestBehavior.translucent,
-                            child: Row(
-                              spacing: context.gutterTiny,
-                              mainAxisAlignment: MainAxisAlignment.end,
-
-                              children: [
-                                Container(
-                                  padding: const EdgeInsets.all(2),
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color:
-                                        context.colorScheme.onPrimaryContainer,
-                                  ),
-
-                                  child: Assets.icons.github.image(
-                                    height: 16,
-                                  ),
-                                ),
-
-                                Text(
-                                  "GitHub",
-                                  style: context.textTheme.labelLarge?.copyWith(
-                                    color:
-                                        context.colorScheme.onPrimaryContainer,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          child: const Column(
-                            children: [
-                              Text(
-                                "A fun Tic-Tac-Toe game built using C",
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-
-                      //* travel payouts
-                      Expanded(
-                        child: ContentWrapper(
-                          leading: Icons.content_cut,
-                          title: 'Rock-Paper-Scissors',
-                          trailingWidget: GestureDetector(
-                            behavior: HitTestBehavior.translucent,
-                            child: Row(
-                              spacing: context.gutterTiny,
-                              mainAxisAlignment: MainAxisAlignment.end,
-
-                              children: [
-                                Container(
-                                  padding: const EdgeInsets.all(2),
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color:
-                                        context.colorScheme.onPrimaryContainer,
-                                  ),
-
-                                  child: Assets.icons.github.image(
-                                    height: 16,
-                                  ),
-                                ),
-
-                                Text(
-                                  "GitHub",
-                                  style: context.textTheme.labelLarge?.copyWith(
-                                    color:
-                                        context.colorScheme.onPrimaryContainer,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          child: const Column(
-                            children: [
-                              Text(
-                                'A simple Tic-Tac-Toe game built using C',
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+          child: Text(
+            "C Builds",
+            style: context.textTheme.titleLarge?.copyWith(
+              fontFamily: 'minecraft_block',
             ),
           ),
+        ),
+
+        //* C projects grid
+        SliverGrid.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: context.isMobile ? 1 : 2,
+            mainAxisSpacing: context.gutter,
+            crossAxisSpacing: context.gutter,
+            mainAxisExtent: 270,
+          ),
+          itemCount: _cProjects.length,
+          itemBuilder: (context, index) {
+            final project = _cProjects[index];
+
+            return ContentWrapper(
+              leading: project.leading,
+              title: project.title,
+              trailingWidget: GithubLogoText(
+                onTap: () {
+                  //* Launch Github url
+                  final url = Uri.parse(project.githubUrl);
+                  launchUrl(url, mode: .externalApplication);
+                },
+              ),
+              child: Text(project.description),
+            );
+          },
         ),
       ],
     );
@@ -205,5 +134,20 @@ final List<ProjectModel> _flutterProjects = [
     title: 'Flutter Stone-Paper-Scissors',
     description: ContentConsts.builds.flutterStonePaperScissorsDesc,
     githubUrl: URLConsts.flutterSPCGithub,
+  ),
+];
+
+final List<ProjectModel> _cProjects = [
+  const ProjectModel(
+    leading: Icons.close,
+    title: 'Tic-Tac-Toe',
+    description: 'A fun Tic-Tac-Toe game',
+    githubUrl: URLConsts.cTicTacToeGithub,
+  ),
+  const ProjectModel(
+    leading: Icons.cut,
+    title: 'Rock-Paper-Scissors',
+    description: 'A fun Rock-Paper-Scissors game',
+    githubUrl: URLConsts.cRockPaperScissorsGithub,
   ),
 ];
