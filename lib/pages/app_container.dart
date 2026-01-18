@@ -62,7 +62,7 @@ class _AppContainerState extends State<AppContainer> {
           SliverPadding(
             padding: EdgeInsets.symmetric(vertical: context.gutter),
             sliver: switch (currentTab) {
-              .home => const HomePage(),
+              // .home => const HomePage(),
               .builds => const BuildsPage(),
               .about => const AboutPage(),
             },

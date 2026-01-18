@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
 enum AppTab {
-  home,
+  // home,
   builds,
   about
   ;
 
   String get label => switch (this) {
-    home => 'Home',
+    // home => 'Home',
     builds => 'Builds',
     about => 'About',
   };
 
   IconData get icon => switch (this) {
-    home => Icons.home_outlined,
+    // home => Icons.home_outlined,
     builds => Icons.construction,
     about => Icons.person_3_outlined,
   };
