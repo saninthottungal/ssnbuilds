@@ -30,8 +30,8 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return ResponsiveBreakpoints.builder(
           breakpoints: [
-            const Breakpoint(start: 0, end: 600, name: MOBILE),
-            const Breakpoint(start: 601, end: double.infinity, name: TABLET),
+            const Breakpoint(start: 0, end: 700, name: MOBILE),
+            const Breakpoint(start: 701, end: double.infinity, name: TABLET),
           ],
           child: ColoredBox(
             color: Theme.of(context).colorScheme.surface,

@@ -72,6 +72,7 @@ class _DP extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ContentWrapper(
+      width: double.infinity,
       child: Column(
         spacing: context.gutterTiny,
         children: [
@@ -84,8 +85,14 @@ class _DP extends StatelessWidget {
               ),
             ),
             margin: EdgeInsets.symmetric(horizontal: context.gutterLarge),
-            child: Image.asset(
-              Assets.images.dpCharacter.path,
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(
+                maxHeight: 200,
+                maxWidth: 200,
+              ),
+              child: Image.asset(
+                Assets.images.dpCharacter.path,
+              ),
             ),
           ),
 

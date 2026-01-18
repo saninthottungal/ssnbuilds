@@ -11,6 +11,7 @@ class ContentWrapper extends StatelessWidget {
     this.padding,
     this.margin,
     this.trailing,
+    this.width,
     this.contentCrossAxisAlignment,
   });
 
@@ -19,6 +20,7 @@ class ContentWrapper extends StatelessWidget {
   final String? trailing;
   final EdgeInsetsGeometry? padding;
   final EdgeInsetsGeometry? margin;
+  final double? width;
   final CrossAxisAlignment? contentCrossAxisAlignment;
   final Widget child;
 
@@ -26,6 +28,7 @@ class ContentWrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: margin,
+      width: width,
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
         border: Border.all(
