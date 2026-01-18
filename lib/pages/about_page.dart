@@ -198,6 +198,30 @@ class _Education extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(child: SizedBox());
+    return Expanded(
+      child: ContentWrapper(
+        leading: Icons.menu_book_rounded,
+        title: 'Education',
+        child: Column(
+          spacing: context.gutterSmall,
+          children: [
+            const ContentWrapper(
+              title: "Bachelor's degree",
+              contentCrossAxisAlignment: .start,
+              trailing: 'nov 2021 - apr 2024',
+              child: Column(
+                crossAxisAlignment: .start,
+                children: [
+                  Text("Institution: Calicut University"),
+                  Text("Major: B.Sc in Computer Science"),
+                  Text("Minor: Discrete Mathematics"),
+                  Text("Location: Malappuram, Kerala"),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
