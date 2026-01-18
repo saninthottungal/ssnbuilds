@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
+import 'package:ssnbuilds/constants/url_const.dart';
 import 'package:ssnbuilds/extensions/context_ext.dart';
 import 'package:ssnbuilds/gen/assets.gen.dart';
 import 'package:ssnbuilds/models/social_media_model.dart';
@@ -93,19 +94,19 @@ class _SocialMediaIconState extends State<_SocialMediaIcon> {
 List<SocialMediaModel> _socialMedias = [
   // github
   SocialMediaModel(
-    url: 'https://github.com/saninthottungal',
+    url: URLConsts.myGithub,
     iconPath: Assets.icons.github.path,
   ),
 
-  //linkeding
+  //linkedin
   SocialMediaModel(
-    url: 'https://www.linkedin.com/in/saninthottungal/',
+    url: URLConsts.myLinkedin,
     iconPath: Assets.icons.linkedin.path,
   ),
 
   //twitter
   SocialMediaModel(
-    url: 'https://x.com/ssn564',
+    url: URLConsts.myTwitter,
     iconPath: Assets.icons.twitter.path,
   ),
 ];
