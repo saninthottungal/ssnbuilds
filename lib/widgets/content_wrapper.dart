@@ -77,18 +77,20 @@ class ContentWrapper extends StatelessWidget {
                       style: context.textTheme.titleSmall?.copyWith(
                         color: context.colorScheme.onPrimaryContainer,
                       ),
+                      overflow: TextOverflow.ellipsis,
                     ),
-                  const Spacer(),
 
                   //* Trailing
                   if (trailing != null)
-                    Text(
-                      trailing!,
-                      style: context.textTheme.labelSmall?.copyWith(
-                        color: context.colorScheme.onPrimaryContainer
-                            .withValues(
-                              alpha: 0.5,
-                            ),
+                    Expanded(
+                      child: Text(
+                        trailing!,
+                        style: context.textTheme.labelSmall?.copyWith(
+                          color: context.colorScheme.onPrimaryContainer
+                              .withValues(alpha: 0.5),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        textAlign: TextAlign.end,
                       ),
                     ),
                 ],
