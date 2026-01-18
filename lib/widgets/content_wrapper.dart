@@ -10,12 +10,16 @@ class ContentWrapper extends StatelessWidget {
     this.leading,
     this.padding,
     this.margin,
+    this.trailing,
+    this.contentCrossAxisAlignment,
   });
 
   final String? title;
   final IconData? leading;
+  final String? trailing;
   final EdgeInsetsGeometry? padding;
   final EdgeInsetsGeometry? margin;
+  final CrossAxisAlignment? contentCrossAxisAlignment;
   final Widget child;
 
   @override
@@ -34,6 +38,7 @@ class ContentWrapper extends StatelessWidget {
       ),
       child: Column(
         mainAxisAlignment: .start,
+        crossAxisAlignment: contentCrossAxisAlignment ?? .center,
         children: [
           if (title != null || leading != null)
             Container(
@@ -76,14 +81,16 @@ class ContentWrapper extends StatelessWidget {
                   const Spacer(),
 
                   //* Trailing
-                  Text(
-                    "page 1 of 1",
-                    style: context.textTheme.labelSmall?.copyWith(
-                      color: context.colorScheme.onPrimaryContainer.withValues(
-                        alpha: 0.5,
+                  if (trailing != null)
+                    Text(
+                      trailing!,
+                      style: context.textTheme.labelSmall?.copyWith(
+                        color: context.colorScheme.onPrimaryContainer
+                            .withValues(
+                              alpha: 0.5,
+                            ),
                       ),
                     ),
-                  ),
                 ],
               ),
             ),

@@ -18,8 +18,8 @@ class AboutPage extends StatelessWidget {
         //* Skills and Technologies
         const _SkillsAndTech(),
 
-        //* Experience
-        const _Experience(),
+        //* Experience and Education
+        const _ExperienceAndEducation(),
       ].separatedBy(const SliverToBoxAdapter(child: Gutter())),
     );
   }
@@ -100,6 +100,7 @@ class _Bio extends StatelessWidget {
       child: ContentWrapper(
         leading: Icons.info_outline,
         title: "Bio Log",
+        trailing: "page 1 of 1",
         child: Text(
           ContentConsts.about.bio,
           style: context.textTheme.bodyLarge,
@@ -138,22 +139,57 @@ class _SkillsAndTech extends StatelessWidget {
   }
 }
 
+class _ExperienceAndEducation extends StatelessWidget {
+  const _ExperienceAndEducation();
+
+  @override
+  Widget build(BuildContext context) {
+    return SliverToBoxAdapter(
+      child: IntrinsicHeight(
+        child: Row(
+          spacing: context.gutter,
+          children: [
+            //* Experience
+            const _Experience(),
+
+            //* Education
+            const _Education(),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 class _Experience extends StatelessWidget {
   const _Experience();
 
   @override
   Widget build(BuildContext context) {
-    // return const ContentWrapper(
-    //   leading: Icons.work_outline,
-    //   title: 'Experience',
-    //   child: Column(
-    //     children: [
-    //       ContentWrapper(title: 'Flutter Developer', child: SizedBox()),
-    //     ],
-    //   ),
-    // );
-
-    return SliverToBoxAdapter(child: const SizedBox());
+    return const Expanded(
+      child: ContentWrapper(
+        leading: Icons.work_outline,
+        title: 'Experience',
+        child: Column(
+          children: [
+            ContentWrapper(
+              title: 'Flutter Developer',
+              contentCrossAxisAlignment: .start,
+              trailing: 'june 2024 - current',
+              child: Column(
+                crossAxisAlignment: .start,
+                children: [
+                  Text("Company: Paiteq pvt limited"),
+                  Text("Employment status : Full-time"),
+                  Text("Location: Remote"),
+                  Text("Working on Nyburs - An intuitive Social media app"),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
 
@@ -162,6 +198,6 @@ class _Education extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Expanded(child: SizedBox());
   }
 }
