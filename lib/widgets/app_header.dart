@@ -4,6 +4,7 @@ import 'package:ssnbuilds/constants/url_const.dart';
 import 'package:ssnbuilds/enums/app_tabs.dart';
 import 'package:ssnbuilds/extensions/context_ext.dart';
 import 'package:ssnbuilds/gen/assets.gen.dart';
+import 'package:ssnbuilds/widgets/social_media_row.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AppHeader extends StatelessWidget {
@@ -59,9 +60,17 @@ class AppHeader extends StatelessWidget {
             hasScrollBody: false,
             child: Container(
               alignment: Alignment.bottomCenter,
-              margin: EdgeInsets.symmetric(vertical: context.gutter),
-              child: const Text(
-                "©2026 ssnbuilds by Sanin. All rights reserved.",
+              margin: EdgeInsets.symmetric(vertical: context.gutterSmall),
+              child: Column(
+                spacing: context.gutterTiny,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  // copyright info
+                  const Text("©2026 ssnbuilds by Sanin. All rights reserved."),
+
+                  // social media row
+                  const SocialMediaRow(),
+                ],
               ),
             ),
           ),

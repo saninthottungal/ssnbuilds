@@ -1,5 +1,5 @@
 class SocialMediaModel {
-  SocialMediaModel({
+  const SocialMediaModel({
     required this.url,
     required this.iconPath,
   });
