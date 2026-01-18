@@ -31,7 +31,9 @@ class SocialMediaRow extends StatelessWidget {
                 _socialMedias[index].iconPath,
                 height: 26,
                 width: 26,
-                color: context.colorScheme.onPrimaryContainer,
+                color: context.colorScheme.onPrimaryContainer.withValues(
+                  alpha: 0.6,
+                ),
               ),
             ),
           );

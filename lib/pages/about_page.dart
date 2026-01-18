@@ -5,6 +5,7 @@ import 'package:ssnbuilds/extensions/context_ext.dart';
 import 'package:ssnbuilds/extensions/list_ext.dart';
 import 'package:ssnbuilds/gen/assets.gen.dart';
 import 'package:ssnbuilds/widgets/content_wrapper.dart';
+import 'package:ssnbuilds/widgets/social_media_row.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
@@ -83,6 +84,9 @@ class _DP extends StatelessWidget {
             const Text("role: flutter dev"),
             const Text("learning: C Programming"),
             const Text("timezone: IST (UTC +5:30)"),
+
+            //social media row
+            const SocialMediaRow(),
           ],
         ),
       ),
