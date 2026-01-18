@@ -135,6 +135,116 @@ class BuildsPage extends StatelessWidget {
             ),
           ),
         ),
+
+        //* spacing
+        const SliverToBoxAdapter(child: Gutter()),
+
+        SliverToBoxAdapter(
+          child: ContentWrapper(
+            leading: Icons.code,
+            title: 'C',
+            child: Column(
+              children: [
+                IntrinsicHeight(
+                  child: Row(
+                    spacing: context.gutterSmall,
+                    children: [
+                      //* Penny Box
+                      Expanded(
+                        child: ContentWrapper(
+                          leading: Icons.close,
+                          title: 'Tic-Tac-Toe',
+                          trailingWidget: GestureDetector(
+                            behavior: HitTestBehavior.translucent,
+                            child: Row(
+                              spacing: context.gutterTiny,
+                              mainAxisAlignment: MainAxisAlignment.end,
+
+                              children: [
+                                Container(
+                                  padding: const EdgeInsets.all(2),
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color:
+                                        context.colorScheme.onPrimaryContainer,
+                                  ),
+
+                                  child: Assets.icons.github.image(
+                                    height: 16,
+                                  ),
+                                ),
+
+                                Text(
+                                  "GitHub",
+                                  style: context.textTheme.labelLarge?.copyWith(
+                                    color:
+                                        context.colorScheme.onPrimaryContainer,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          child: const Column(
+                            children: [
+                              Text(
+                                "A fun Tic-Tac-Toe game built using C",
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+
+                      //* travel payouts
+                      Expanded(
+                        child: ContentWrapper(
+                          leading: Icons.content_cut,
+                          title: 'Rock-Paper-Scissors',
+                          trailingWidget: GestureDetector(
+                            behavior: HitTestBehavior.translucent,
+                            child: Row(
+                              spacing: context.gutterTiny,
+                              mainAxisAlignment: MainAxisAlignment.end,
+
+                              children: [
+                                Container(
+                                  padding: const EdgeInsets.all(2),
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color:
+                                        context.colorScheme.onPrimaryContainer,
+                                  ),
+
+                                  child: Assets.icons.github.image(
+                                    height: 16,
+                                  ),
+                                ),
+
+                                Text(
+                                  "GitHub",
+                                  style: context.textTheme.labelLarge?.copyWith(
+                                    color:
+                                        context.colorScheme.onPrimaryContainer,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          child: const Column(
+                            children: [
+                              Text(
+                                'A simple Tic-Tac-Toe game built using C',
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ],
     );
   }
