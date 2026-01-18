@@ -25,6 +25,18 @@ The app enables users to select departure and arrival locations, specify travel 
 It streamlines the booking process by managing passenger details and seat preferences, 
 providing a centralized platform to secure tickets before travel.
 ''';
+
+  final String flutterStonePaperScissorsDesc = '''
+A Rock Paper Scissors game that uses Flutter for the user interface and a C program for the game logic. 
+The winner is determined by passing user input to an embedded C library via Dart FFI (Foreign Function Interface). 
+The project demonstrates how to connect low-level code to a mobile or desktop UI to handle computations outside of the Dart environment.
+''';
+
+  final String iBusDesc = '''
+A regional bus tracking application designed to view local transit schedules. 
+Users input a departure point, a destination, and a preferred time to see a list of upcoming bus arrivals on that specific route. 
+This was my first Flutter project, developed to simplify finding bus timings in areas where real-time GPS data may not be readily available.
+''';
 }
 
 class _About {

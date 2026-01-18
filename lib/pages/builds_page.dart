@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
 import 'package:ssnbuilds/constants/content_const.dart';
+import 'package:ssnbuilds/constants/url_const.dart';
 import 'package:ssnbuilds/extensions/context_ext.dart';
 import 'package:ssnbuilds/gen/assets.gen.dart';
+import 'package:ssnbuilds/models/project_model.dart';
 import 'package:ssnbuilds/widgets/content_wrapper.dart';
 
 class BuildsPage extends StatelessWidget {
@@ -249,3 +251,26 @@ class BuildsPage extends StatelessWidget {
     );
   }
 }
+
+final List<ProjectModel> _flutterProjects = [
+  ProjectModel(
+    title: 'Penny Box',
+    description: ContentConsts.builds.pennyBoxDesc,
+    githubUrl: URLConsts.pennyBoxGithub,
+  ),
+  ProjectModel(
+    title: 'Fair Flights',
+    description: ContentConsts.builds.fairFlightsDesc,
+    githubUrl: URLConsts.fairFlightsGithub,
+  ),
+  ProjectModel(
+    title: 'iBus',
+    description: ContentConsts.builds.iBusDesc,
+    githubUrl: URLConsts.iBusGithub,
+  ),
+  ProjectModel(
+    title: 'Flutter Stone-Paper-Scissors',
+    description: ContentConsts.builds.flutterStonePaperScissorsDesc,
+    githubUrl: URLConsts.flutterSPCGithub,
+  ),
+];
