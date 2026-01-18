@@ -12,12 +12,14 @@ class ContentWrapper extends StatelessWidget {
     this.margin,
     this.trailing,
     this.width,
+    this.trailingWidget,
     this.contentCrossAxisAlignment,
   });
 
   final String? title;
   final IconData? leading;
   final String? trailing;
+  final Widget? trailingWidget;
   final EdgeInsetsGeometry? padding;
   final EdgeInsetsGeometry? margin;
   final double? width;
@@ -84,7 +86,9 @@ class ContentWrapper extends StatelessWidget {
                     ),
 
                   //* Trailing
-                  if (trailing != null)
+                  if (trailingWidget != null)
+                    Expanded(child: trailingWidget!)
+                  else if (trailing != null)
                     Expanded(
                       child: Text(
                         trailing!,
