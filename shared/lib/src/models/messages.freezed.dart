@@ -13,22 +13,22 @@ part of 'messages.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-mixin _$Message {
+mixin _$AppMessage {
 
  String get id; String get name; String get message; DateTime get createdAt; String? get email;
-/// Create a copy of Message
+/// Create a copy of AppMessage
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$MessageCopyWith<Message> get copyWith => _$MessageCopyWithImpl<Message>(this as Message, _$identity);
+$AppMessageCopyWith<AppMessage> get copyWith => _$AppMessageCopyWithImpl<AppMessage>(this as AppMessage, _$identity);
 
-  /// Serializes this Message to a JSON map.
+  /// Serializes this AppMessage to a JSON map.
   Map<String, dynamic> toJson();
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Message&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.message, message) || other.message == message)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.email, email) || other.email == email));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AppMessage&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.message, message) || other.message == message)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.email, email) || other.email == email));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -37,15 +37,15 @@ int get hashCode => Object.hash(runtimeType,id,name,message,createdAt,email);
 
 @override
 String toString() {
-  return 'Message(id: $id, name: $name, message: $message, createdAt: $createdAt, email: $email)';
+  return 'AppMessage(id: $id, name: $name, message: $message, createdAt: $createdAt, email: $email)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $MessageCopyWith<$Res>  {
-  factory $MessageCopyWith(Message value, $Res Function(Message) _then) = _$MessageCopyWithImpl;
+abstract mixin class $AppMessageCopyWith<$Res>  {
+  factory $AppMessageCopyWith(AppMessage value, $Res Function(AppMessage) _then) = _$AppMessageCopyWithImpl;
 @useResult
 $Res call({
  String id, String name, String message, DateTime createdAt, String? email
@@ -56,14 +56,14 @@ $Res call({
 
 }
 /// @nodoc
-class _$MessageCopyWithImpl<$Res>
-    implements $MessageCopyWith<$Res> {
-  _$MessageCopyWithImpl(this._self, this._then);
+class _$AppMessageCopyWithImpl<$Res>
+    implements $AppMessageCopyWith<$Res> {
+  _$AppMessageCopyWithImpl(this._self, this._then);
 
-  final Message _self;
-  final $Res Function(Message) _then;
+  final AppMessage _self;
+  final $Res Function(AppMessage) _then;
 
-/// Create a copy of Message
+/// Create a copy of AppMessage
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? message = null,Object? createdAt = null,Object? email = freezed,}) {
   return _then(_self.copyWith(
@@ -79,8 +79,8 @@ as String?,
 }
 
 
-/// Adds pattern-matching-related methods to [Message].
-extension MessagePatterns on Message {
+/// Adds pattern-matching-related methods to [AppMessage].
+extension AppMessagePatterns on AppMessage {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -93,10 +93,10 @@ extension MessagePatterns on Message {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _Message value)?  $default,{required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _AppMessage value)?  $default,{required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _Message() when $default != null:
+case _AppMessage() when $default != null:
 return $default(_that);case _:
   return orElse();
 
@@ -115,10 +115,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _Message value)  $default,){
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _AppMessage value)  $default,){
 final _that = this;
 switch (_that) {
-case _Message():
+case _AppMessage():
 return $default(_that);case _:
   throw StateError('Unexpected subclass');
 
@@ -136,10 +136,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _Message value)?  $default,){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _AppMessage value)?  $default,){
 final _that = this;
 switch (_that) {
-case _Message() when $default != null:
+case _AppMessage() when $default != null:
 return $default(_that);case _:
   return null;
 
@@ -159,7 +159,7 @@ return $default(_that);case _:
 
 @optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name,  String message,  DateTime createdAt,  String? email)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _Message() when $default != null:
+case _AppMessage() when $default != null:
 return $default(_that.id,_that.name,_that.message,_that.createdAt,_that.email);case _:
   return orElse();
 
@@ -180,7 +180,7 @@ return $default(_that.id,_that.name,_that.message,_that.createdAt,_that.email);c
 
 @optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name,  String message,  DateTime createdAt,  String? email)  $default,) {final _that = this;
 switch (_that) {
-case _Message():
+case _AppMessage():
 return $default(_that.id,_that.name,_that.message,_that.createdAt,_that.email);case _:
   throw StateError('Unexpected subclass');
 
@@ -200,7 +200,7 @@ return $default(_that.id,_that.name,_that.message,_that.createdAt,_that.email);c
 
 @optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name,  String message,  DateTime createdAt,  String? email)?  $default,) {final _that = this;
 switch (_that) {
-case _Message() when $default != null:
+case _AppMessage() when $default != null:
 return $default(_that.id,_that.name,_that.message,_that.createdAt,_that.email);case _:
   return null;
 
@@ -212,9 +212,9 @@ return $default(_that.id,_that.name,_that.message,_that.createdAt,_that.email);c
 /// @nodoc
 @JsonSerializable()
 
-class _Message implements Message {
-  const _Message({required this.id, required this.name, required this.message, required this.createdAt, this.email});
-  factory _Message.fromJson(Map<String, dynamic> json) => _$MessageFromJson(json);
+class _AppMessage implements AppMessage {
+  const _AppMessage({required this.id, required this.name, required this.message, required this.createdAt, this.email});
+  factory _AppMessage.fromJson(Map<String, dynamic> json) => _$AppMessageFromJson(json);
 
 @override final  String id;
 @override final  String name;
@@ -222,20 +222,20 @@ class _Message implements Message {
 @override final  DateTime createdAt;
 @override final  String? email;
 
-/// Create a copy of Message
+/// Create a copy of AppMessage
 /// with the given fields replaced by the non-null parameter values.
 @override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$MessageCopyWith<_Message> get copyWith => __$MessageCopyWithImpl<_Message>(this, _$identity);
+_$AppMessageCopyWith<_AppMessage> get copyWith => __$AppMessageCopyWithImpl<_AppMessage>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
-  return _$MessageToJson(this, );
+  return _$AppMessageToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Message&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.message, message) || other.message == message)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.email, email) || other.email == email));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AppMessage&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.message, message) || other.message == message)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.email, email) || other.email == email));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -244,15 +244,15 @@ int get hashCode => Object.hash(runtimeType,id,name,message,createdAt,email);
 
 @override
 String toString() {
-  return 'Message(id: $id, name: $name, message: $message, createdAt: $createdAt, email: $email)';
+  return 'AppMessage(id: $id, name: $name, message: $message, createdAt: $createdAt, email: $email)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$MessageCopyWith<$Res> implements $MessageCopyWith<$Res> {
-  factory _$MessageCopyWith(_Message value, $Res Function(_Message) _then) = __$MessageCopyWithImpl;
+abstract mixin class _$AppMessageCopyWith<$Res> implements $AppMessageCopyWith<$Res> {
+  factory _$AppMessageCopyWith(_AppMessage value, $Res Function(_AppMessage) _then) = __$AppMessageCopyWithImpl;
 @override @useResult
 $Res call({
  String id, String name, String message, DateTime createdAt, String? email
@@ -263,17 +263,17 @@ $Res call({
 
 }
 /// @nodoc
-class __$MessageCopyWithImpl<$Res>
-    implements _$MessageCopyWith<$Res> {
-  __$MessageCopyWithImpl(this._self, this._then);
+class __$AppMessageCopyWithImpl<$Res>
+    implements _$AppMessageCopyWith<$Res> {
+  __$AppMessageCopyWithImpl(this._self, this._then);
 
-  final _Message _self;
-  final $Res Function(_Message) _then;
+  final _AppMessage _self;
+  final $Res Function(_AppMessage) _then;
 
-/// Create a copy of Message
+/// Create a copy of AppMessage
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? message = null,Object? createdAt = null,Object? email = freezed,}) {
-  return _then(_Message(
+  return _then(_AppMessage(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
