@@ -16,7 +16,10 @@ dependencies:
   flutter_web_plugins:
     sdk: flutter
   go_router: ^17.0.1
+  http: ^1.6.0
   responsive_framework: ^1.5.1
+  shared:
+    path: ../shared
   url_launcher: ^6.3.2
 
 dev_dependencies:

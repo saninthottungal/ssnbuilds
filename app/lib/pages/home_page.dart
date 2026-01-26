@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:http/http.dart';
+import 'package:shared/shared.dart';
 import 'package:ssnbuilds/extensions/context_ext.dart';
 import 'package:ssnbuilds/extensions/list_ext.dart';
 import 'package:ssnbuilds/widgets/content_wrapper.dart';
@@ -133,6 +135,18 @@ class _WhatImDoingCard extends StatelessWidget {
 class LeaveMessageCard extends HookWidget {
   const LeaveMessageCard({super.key});
 
+  Future<void> _publishMessage(AppMessage message) async {
+    final url = 'http://localhost:8080/messages/';
+    await post(
+      Uri.parse(url),
+      body: {
+        "name": message.name,
+        "message": message.message,
+        "email": message.email,
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final nameController = useTextEditingController();
@@ -203,6 +217,16 @@ class LeaveMessageCard extends HookWidget {
                     ? null
                     : mailController.text;
                 final message = messageController.text;
+
+                _publishMessage(
+                  AppMessage(
+                    id: 1234,
+                    name: name,
+                    message: message,
+                    email: mail,
+                    createdAt: DateTime.now(),
+                  ),
+                );
               },
               child: const Text("send"),
             ),
