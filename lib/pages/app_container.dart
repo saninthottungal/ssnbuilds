@@ -16,7 +16,7 @@ class AppContainer extends StatefulWidget {
 }
 
 class _AppContainerState extends State<AppContainer> {
-  AppTab currentTab = AppTab.about;
+  AppTab currentTab = AppTab.home;
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +62,7 @@ class _AppContainerState extends State<AppContainer> {
           SliverPadding(
             padding: EdgeInsets.symmetric(vertical: context.gutter),
             sliver: switch (currentTab) {
-              // .home => const HomePage(),
+              .home => const HomePage(),
               .builds => const BuildsPage(),
               .about => const AboutPage(),
             },
