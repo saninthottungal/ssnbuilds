@@ -15,4 +15,24 @@ class AppDatabase {
 
     return res.map((e) => AppMessage.fromJson(e.toColumnMap())).toList();
   }
+
+  Future<void> addMessage(AppMessage message) async {
+    await _conn.execute(
+      r'''
+INSERT INTO messages 
+(
+name,
+message,
+email
+) 
+VALUES 
+(
+$1,
+$2,
+$3
+);
+''',
+      parameters: [message.name, message.message, message.email],
+    );
+  }
 }
