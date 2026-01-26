@@ -1,6 +1,11 @@
-// TODO: Put public facing types in this file.
+import 'package:postgres/postgres.dart';
 
-/// Checks if you are awesome. Spoiler: you are.
-class Awesome {
-  bool get isAwesome => true;
+class AppDatabase {
+  AppDatabase({required Connection connection}) : _conn = connection;
+  final Connection _conn;
+
+  static Future<AppDatabase> create(String connectionString) async {
+    final conn = await Connection.openFromUrl(connectionString);
+    return AppDatabase(connection: conn);
+  }
 }
