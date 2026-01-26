@@ -4,9 +4,15 @@ part 'messages.freezed.dart';
 part 'messages.g.dart';
 
 @freezed
-abstract class Messages with _$Messages {
-  const factory Messages() = _Messages;
+abstract class Message with _$Message {
+  const factory Message({
+    required String id,
+    required String name,
+    required String message,
+    required DateTime createdAt,
+    String? email,
+  }) = _Message;
 
-  factory Messages.fromJson(Map<String, dynamic> json) =>
-      _$MessagesFromJson(json);
+  factory Message.fromJson(Map<String, dynamic> json) =>
+      _$MessageFromJson(json);
 }
