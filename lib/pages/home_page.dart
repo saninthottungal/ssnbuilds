@@ -11,18 +11,33 @@ class HomePage extends StatelessWidget {
     return SliverMainAxisGroup(
       slivers: [
         SliverToBoxAdapter(
-          child: IntrinsicHeight(
-            child: Row(
-              spacing: context.gutter,
-              children: [
-                const Expanded(
-                  child: _MyNameCardInfo(),
-                ),
-                const Expanded(
-                  child: _WhatImDoingCard(),
-                ),
-              ],
-            ),
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              if (context.isMobile) {
+                return Column(
+                  mainAxisSize: MainAxisSize.min,
+                  spacing: context.gutter,
+                  children: const [
+                    _MyNameCardInfo(),
+                    _WhatImDoingCard(),
+                  ],
+                );
+              } else {
+                return IntrinsicHeight(
+                  child: Row(
+                    spacing: context.gutter,
+                    children: [
+                      const Expanded(
+                        child: _MyNameCardInfo(),
+                      ),
+                      const Expanded(
+                        child: _WhatImDoingCard(),
+                      ),
+                    ],
+                  ),
+                );
+              }
+            },
           ),
         ),
       ],
