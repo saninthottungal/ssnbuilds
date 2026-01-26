@@ -17,7 +17,7 @@ Future<Response> _get(RequestContext context) async {
 }
 
 Future<Response> _post(RequestContext context) async {
-  final body = await context.request.json() as Map<String, dynamic>;
+  final body = (await context.request.json()) as Map<String, dynamic>;
   final name = body['name'] as String;
   final message = body['message'] as String;
   final email = body['email'] as String?;

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -139,11 +141,11 @@ class LeaveMessageCard extends HookWidget {
     final url = 'http://localhost:8080/messages/';
     await post(
       Uri.parse(url),
-      body: {
-        "name": message.name,
-        "message": message.message,
-        "email": message.email,
-      },
+      body: jsonEncode({
+        'name': message.name,
+        'message': message.message,
+        'email': message.email,
+      }),
     );
   }
 
@@ -167,6 +169,7 @@ class LeaveMessageCard extends HookWidget {
               ),
             ),
             TextFormField(
+              controller: nameController,
               maxLines: 1,
               maxLength: 100,
               autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -182,6 +185,7 @@ class LeaveMessageCard extends HookWidget {
               },
             ),
             TextFormField(
+              controller: mailController,
               maxLines: 1,
               maxLength: 100,
               autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -190,6 +194,7 @@ class LeaveMessageCard extends HookWidget {
               ),
             ),
             TextFormField(
+              controller: messageController,
               maxLength: 600,
               minLines: 1,
               maxLines: 24,
