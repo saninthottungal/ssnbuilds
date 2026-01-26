@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$AppMessage {
 
- String get id; String get name; String get message; DateTime get createdAt; String? get email;
+ int get id; String get name; String get message;@JsonKey(name: 'createdat') DateTime get createdAt; String? get email;
 /// Create a copy of AppMessage
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $AppMessageCopyWith<$Res>  {
   factory $AppMessageCopyWith(AppMessage value, $Res Function(AppMessage) _then) = _$AppMessageCopyWithImpl;
 @useResult
 $Res call({
- String id, String name, String message, DateTime createdAt, String? email
+ int id, String name, String message,@JsonKey(name: 'createdat') DateTime createdAt, String? email
 });
 
 
@@ -68,7 +68,7 @@ class _$AppMessageCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? message = null,Object? createdAt = null,Object? email = freezed,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,email: freezed == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
@@ -157,7 +157,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name,  String message,  DateTime createdAt,  String? email)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int id,  String name,  String message, @JsonKey(name: 'createdat')  DateTime createdAt,  String? email)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AppMessage() when $default != null:
 return $default(_that.id,_that.name,_that.message,_that.createdAt,_that.email);case _:
@@ -178,7 +178,7 @@ return $default(_that.id,_that.name,_that.message,_that.createdAt,_that.email);c
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name,  String message,  DateTime createdAt,  String? email)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int id,  String name,  String message, @JsonKey(name: 'createdat')  DateTime createdAt,  String? email)  $default,) {final _that = this;
 switch (_that) {
 case _AppMessage():
 return $default(_that.id,_that.name,_that.message,_that.createdAt,_that.email);case _:
@@ -198,7 +198,7 @@ return $default(_that.id,_that.name,_that.message,_that.createdAt,_that.email);c
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name,  String message,  DateTime createdAt,  String? email)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int id,  String name,  String message, @JsonKey(name: 'createdat')  DateTime createdAt,  String? email)?  $default,) {final _that = this;
 switch (_that) {
 case _AppMessage() when $default != null:
 return $default(_that.id,_that.name,_that.message,_that.createdAt,_that.email);case _:
@@ -213,13 +213,13 @@ return $default(_that.id,_that.name,_that.message,_that.createdAt,_that.email);c
 @JsonSerializable()
 
 class _AppMessage implements AppMessage {
-  const _AppMessage({required this.id, required this.name, required this.message, required this.createdAt, this.email});
+  const _AppMessage({required this.id, required this.name, required this.message, @JsonKey(name: 'createdat') required this.createdAt, this.email});
   factory _AppMessage.fromJson(Map<String, dynamic> json) => _$AppMessageFromJson(json);
 
-@override final  String id;
+@override final  int id;
 @override final  String name;
 @override final  String message;
-@override final  DateTime createdAt;
+@override@JsonKey(name: 'createdat') final  DateTime createdAt;
 @override final  String? email;
 
 /// Create a copy of AppMessage
@@ -255,7 +255,7 @@ abstract mixin class _$AppMessageCopyWith<$Res> implements $AppMessageCopyWith<$
   factory _$AppMessageCopyWith(_AppMessage value, $Res Function(_AppMessage) _then) = __$AppMessageCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String name, String message, DateTime createdAt, String? email
+ int id, String name, String message,@JsonKey(name: 'createdat') DateTime createdAt, String? email
 });
 
 
@@ -275,7 +275,7 @@ class __$AppMessageCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? message = null,Object? createdAt = null,Object? email = freezed,}) {
   return _then(_AppMessage(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,email: freezed == email ? _self.email : email // ignore: cast_nullable_to_non_nullable

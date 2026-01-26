@@ -13,7 +13,16 @@ class AppDatabase {
   Future<List<AppMessage>> getAllMessages() async {
     final res = await _conn.execute("SELECT * FROM messages;");
 
-    return res.map((e) => AppMessage.fromJson(e.toColumnMap())).toList();
+    return res.map((e) {
+      final map = e.toColumnMap();
+      return AppMessage(
+        id: map['id'] as int,
+        name: map['name'] as String,
+        message: map['message'] as String,
+        createdAt: map['createdat'] as DateTime,
+        email: map['email'],
+      );
+    }).toList();
   }
 
   Future<void> addMessage(AppMessage message) async {

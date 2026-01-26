@@ -7,10 +7,10 @@ part of 'messages.dart';
 // **************************************************************************
 
 _AppMessage _$AppMessageFromJson(Map<String, dynamic> json) => _AppMessage(
-  id: json['id'] as String,
+  id: (json['id'] as num).toInt(),
   name: json['name'] as String,
   message: json['message'] as String,
-  createdAt: DateTime.parse(json['createdAt'] as String),
+  createdAt: DateTime.parse(json['createdat'] as String),
   email: json['email'] as String?,
 );
 
@@ -19,6 +19,6 @@ Map<String, dynamic> _$AppMessageToJson(_AppMessage instance) =>
       'id': instance.id,
       'name': instance.name,
       'message': instance.message,
-      'createdAt': instance.createdAt.toIso8601String(),
+      'createdat': instance.createdAt.toIso8601String(),
       'email': instance.email,
     };

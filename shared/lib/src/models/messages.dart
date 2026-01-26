@@ -6,10 +6,10 @@ part 'messages.g.dart';
 @freezed
 abstract class AppMessage with _$AppMessage {
   const factory AppMessage({
-    required String id,
+    required int id,
     required String name,
     required String message,
-    required DateTime createdAt,
+    @JsonKey(name: 'createdat') required DateTime createdAt,
     String? email,
   }) = _AppMessage;
 

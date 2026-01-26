@@ -8,11 +8,11 @@ environment:
 
 dependencies:
   dart_frog: ^1.1.0
-  database: 
+  database:
     path: ../database
+  dotenv: ^4.2.0
   shared:
     path: ../shared
-
 
 dev_dependencies:
   dart_frog_lint: ^0.1.0
