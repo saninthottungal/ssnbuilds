@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
 import 'package:ssnbuilds/extensions/context_ext.dart';
+import 'package:ssnbuilds/extensions/list_ext.dart';
 import 'package:ssnbuilds/widgets/content_wrapper.dart';
+
+final _leaveMessageKey = GlobalKey<FormState>();
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -40,7 +43,12 @@ class HomePage extends StatelessWidget {
             },
           ),
         ),
-      ],
+
+        //* Leave a message
+        const SliverToBoxAdapter(
+          child: LeaveMessageCard(),
+        ),
+      ].separatedBy(const SliverToBoxAdapter(child: Gutter())),
     );
   }
 }
@@ -116,6 +124,76 @@ class _WhatImDoingCard extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class LeaveMessageCard extends StatelessWidget {
+  const LeaveMessageCard({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ContentWrapper(
+      child: Form(
+        key: _leaveMessageKey,
+        child: Column(
+          spacing: context.gutterSmall,
+          children: [
+            Text(
+              "Leave a message",
+              style: context.textTheme.headlineMedium?.copyWith(
+                fontFamily: 'minecraft_block',
+                color: context.colorScheme.onPrimaryContainer,
+              ),
+            ),
+            TextFormField(
+              maxLines: 1,
+              maxLength: 100,
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              decoration: const InputDecoration(
+                hintText: 'your name (required)',
+              ),
+
+              validator: (value) {
+                if (value?.trim().isEmpty == true) {
+                  return 'name cannot be empty';
+                }
+                return null;
+              },
+            ),
+            TextFormField(
+              maxLines: 1,
+              maxLength: 100,
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              decoration: const InputDecoration(
+                hintText: 'your mail (optional)',
+              ),
+            ),
+            TextFormField(
+              maxLength: 600,
+              minLines: 1,
+              maxLines: 24,
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              decoration: const InputDecoration(
+                hintText: 'message (required)',
+              ),
+              validator: (value) {
+                if (value?.trim().isEmpty == true) {
+                  return 'message cannot be empty';
+                }
+                return null;
+              },
+            ),
+
+            ElevatedButton(
+              onPressed: () {
+                _leaveMessageKey.currentState?.validate();
+              },
+              child: const Text("send"),
+            ),
+          ],
+        ),
       ),
     );
   }
