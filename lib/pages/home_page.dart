@@ -15,75 +15,93 @@ class HomePage extends StatelessWidget {
             child: Row(
               spacing: context.gutter,
               children: [
-                Expanded(
-                  child: ContentWrapper(
-                    leading: Icons.safety_divider_outlined,
-                    title: 'Hello World🎉',
-                    contentCrossAxisAlignment: .start,
-                    child: Column(
-                      crossAxisAlignment: .start,
-                      children: [
-                        Text(
-                          "For starters,",
-                          style: context.textTheme.headlineSmall,
-                        ),
-                        Text(
-                          "I am sanin T.",
-                          style: context.textTheme.displayLarge?.copyWith(
-                            fontFamily: 'minecraft_block',
-                            color: context.colorScheme.onPrimaryContainer,
-                          ),
-                        ),
-                        Text(
-                          "A Software Developer.",
-                          style: context.textTheme.headlineSmall,
-                        ),
-                      ],
-                    ),
-                  ),
+                const Expanded(
+                  child: _MyNameCardInfo(),
                 ),
-                Expanded(
-                  child: ContentWrapper(
-                    leading: Icons.toggle_on_outlined,
-                    title: 'What am i doing right now?',
-                    child: Column(
-                      spacing: context.gutterSmall,
-                      children: [
-                        const ContentWrapper(
-                          contentCrossAxisAlignment: .start,
-                          leading: Icons.book,
-                          title: "The book i'm reading",
-                          child: Text(
-                            '''"Code : The Hidden Language of Computer Hardware and Software" by Charles Petzold''',
-                          ),
-                        ),
-                        const ContentWrapper(
-                          contentCrossAxisAlignment: .start,
-                          leading: Icons.movie,
-                          title: "The Movie/Series i'm watching",
-                          child: Text("The Rookie SE04EP11"),
-                        ),
-                        const ContentWrapper(
-                          contentCrossAxisAlignment: .start,
-                          leading: Icons.auto_stories,
-                          title: "The topic i'm studying",
-                          child: Column(
-                            crossAxisAlignment: .start,
-                            children: [
-                              Text("API development using dart_frog"),
-                              Text("C programming basics"),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                const Expanded(
+                  child: _WhatImDoingCard(),
                 ),
               ],
             ),
           ),
         ),
       ],
+    );
+  }
+}
+
+class _MyNameCardInfo extends StatelessWidget {
+  const _MyNameCardInfo();
+
+  @override
+  Widget build(BuildContext context) {
+    return ContentWrapper(
+      leading: Icons.safety_divider_outlined,
+      title: 'Hello World🎉',
+      contentCrossAxisAlignment: .start,
+      child: Column(
+        crossAxisAlignment: .start,
+        children: [
+          Text(
+            "For starters,",
+            style: context.textTheme.headlineSmall,
+          ),
+          Text(
+            "I am sanin T.",
+            style: context.textTheme.displayLarge?.copyWith(
+              fontFamily: 'minecraft_block',
+              color: context.colorScheme.onPrimaryContainer,
+            ),
+          ),
+          Text(
+            "A Software Developer.",
+            style: context.textTheme.headlineSmall,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _WhatImDoingCard extends StatelessWidget {
+  const _WhatImDoingCard();
+
+  @override
+  Widget build(BuildContext context) {
+    return ContentWrapper(
+      leading: Icons.toggle_on_outlined,
+      title: 'What am i doing right now?',
+      child: Column(
+        spacing: context.gutterSmall,
+        children: [
+          const ContentWrapper(
+            contentCrossAxisAlignment: .start,
+            leading: Icons.book,
+            title: "The book i'm reading",
+            child: Text(
+              '''"Code : The Hidden Language of Computer Hardware and Software" by Charles Petzold''',
+            ),
+          ),
+          const ContentWrapper(
+            contentCrossAxisAlignment: .start,
+            leading: Icons.movie,
+            title: "The Movie/Series i'm watching",
+            child: Text("The Rookie SE04EP11"),
+          ),
+          const ContentWrapper(
+            contentCrossAxisAlignment: .start,
+            leading: Icons.auto_stories,
+            title: "The topic i'm studying",
+            child: Column(
+              crossAxisAlignment: .start,
+              children: [
+                Text("API development using dart_frog"),
+                Text("C programming basics"),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
