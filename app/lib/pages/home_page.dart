@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:ssnbuilds/extensions/context_ext.dart';
 import 'package:ssnbuilds/extensions/list_ext.dart';
 import 'package:ssnbuilds/widgets/content_wrapper.dart';
@@ -129,11 +130,15 @@ class _WhatImDoingCard extends StatelessWidget {
   }
 }
 
-class LeaveMessageCard extends StatelessWidget {
+class LeaveMessageCard extends HookWidget {
   const LeaveMessageCard({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final nameController = useTextEditingController();
+    final mailController = useTextEditingController();
+    final messageController = useTextEditingController();
+
     return ContentWrapper(
       child: Form(
         key: _leaveMessageKey,
@@ -188,7 +193,16 @@ class LeaveMessageCard extends StatelessWidget {
 
             ElevatedButton(
               onPressed: () {
-                _leaveMessageKey.currentState?.validate();
+                final isOkay =
+                    _leaveMessageKey.currentState?.validate() ?? true;
+                if (!isOkay) return;
+
+                // call api here
+                final name = nameController.text;
+                final mail = mailController.text.trim().isEmpty
+                    ? null
+                    : mailController.text;
+                final message = messageController.text;
               },
               child: const Text("send"),
             ),
