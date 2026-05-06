@@ -1,9 +1,8 @@
 import 'package:go_router/go_router.dart';
-import 'package:ssnbuilds/pages/about_page.dart';
+import 'package:ssnbuilds/router/app_routes.dart';
 
-final router = GoRouter(
-  initialLocation: '/',
-  routes: [
-    GoRoute(path: '/', builder: (context, state) => const AboutPage()),
-  ],
+final appRouter = GoRouter(
+  navigatorKey: rootNavigatorKey,
+  routes: $appRoutes,
+  debugLogDiagnostics: true,
 );
