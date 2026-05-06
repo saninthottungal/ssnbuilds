@@ -29,32 +29,34 @@ class MyShellRouteData extends ShellRouteData {
 
   @override
   Widget builder(BuildContext context, GoRouterState state, Widget navigator) {
-    return NestedScrollView(
-      headerSliverBuilder: (context, innerBoxIsScrolled) {
-        return [
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsets.symmetric(vertical: context.gutterSmall),
-              child: Row(
-                children: [
-                  //* Logo
-                  Image.asset(
-                    Assets.logo.textLogo.path,
-                    width: 200,
-                    height: 50,
-                  ),
+    return Scaffold(
+      body: NestedScrollView(
+        headerSliverBuilder: (context, _) {
+          return [
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: context.gutterSmall),
+                child: Row(
+                  children: [
+                    //* Logo
+                    Image.asset(
+                      Assets.logo.textLogo.path,
+                      width: 200,
+                      height: 50,
+                    ),
 
-                  //* Spacer
-                  const Spacer(),
+                    //* Spacer
+                    const Spacer(),
 
-                  const _Tabs(),
-                ],
+                    const _Tabs(),
+                  ],
+                ),
               ),
             ),
-          ),
-        ];
-      },
-      body: SizedBox(),
+          ];
+        },
+        body: navigator,
+      ),
     );
   }
 }

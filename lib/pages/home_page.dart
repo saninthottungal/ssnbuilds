@@ -8,11 +8,10 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverToBoxAdapter();
-    return SliverMainAxisGroup(
-      slivers: [
-        SliverToBoxAdapter(
-          child: LayoutBuilder(
+    return Scaffold(
+      body: ListView(
+        children: [
+          LayoutBuilder(
             builder: (context, constraints) {
               if (context.isMobile) {
                 return Column(
@@ -40,8 +39,8 @@ class HomePage extends StatelessWidget {
               }
             },
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
