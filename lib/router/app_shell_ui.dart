@@ -18,6 +18,7 @@ class AppShellUI extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: NestedScrollView(
+        physics: const ClampingScrollPhysics(),
         headerSliverBuilder: (context, _) {
           return [
             SliverToBoxAdapter(

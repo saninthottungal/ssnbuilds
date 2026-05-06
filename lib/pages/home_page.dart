@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
 import 'package:ssnbuilds/extensions/context_ext.dart';
+import 'package:ssnbuilds/widgets/app_footer.dart';
 import 'package:ssnbuilds/widgets/content_wrapper.dart';
 
 class HomePage extends StatelessWidget {
@@ -9,35 +10,44 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
-        children: [
-          LayoutBuilder(
-            builder: (context, constraints) {
-              if (context.isMobile) {
-                return Column(
-                  mainAxisSize: MainAxisSize.min,
-                  spacing: context.gutter,
-                  children: const [
-                    _MyNameCardInfo(),
-                    _WhatImDoingCard(),
-                  ],
-                );
-              } else {
-                return IntrinsicHeight(
-                  child: Row(
+      body: CustomScrollView(
+        physics: const ClampingScrollPhysics(),
+        slivers: [
+          SliverToBoxAdapter(
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                if (context.isMobile) {
+                  return Column(
+                    mainAxisSize: MainAxisSize.min,
                     spacing: context.gutter,
-                    children: [
-                      const Expanded(
-                        child: _MyNameCardInfo(),
-                      ),
-                      const Expanded(
-                        child: _WhatImDoingCard(),
-                      ),
+                    children: const [
+                      _MyNameCardInfo(),
+                      _WhatImDoingCard(),
                     ],
-                  ),
-                );
-              }
-            },
+                  );
+                } else {
+                  return IntrinsicHeight(
+                    child: Row(
+                      spacing: context.gutter,
+                      children: [
+                        const Expanded(
+                          child: _MyNameCardInfo(),
+                        ),
+                        const Expanded(
+                          child: _WhatImDoingCard(),
+                        ),
+                      ],
+                    ),
+                  );
+                }
+              },
+            ),
+          ),
+
+          //* footer
+          const SliverFillRemaining(
+            hasScrollBody: false,
+            child: AppFooter(),
           ),
         ],
       ),
