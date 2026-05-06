@@ -8,37 +8,39 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        LayoutBuilder(
-          builder: (context, constraints) {
-            if (context.isMobile) {
-              return Column(
-                mainAxisSize: MainAxisSize.min,
-                spacing: context.gutter,
-                children: const [
-                  _MyNameCardInfo(),
-                  _WhatImDoingCard(),
-                ],
-              );
-            } else {
-              return IntrinsicHeight(
-                child: Row(
+    return Scaffold(
+      body: ListView(
+        children: [
+          LayoutBuilder(
+            builder: (context, constraints) {
+              if (context.isMobile) {
+                return Column(
+                  mainAxisSize: MainAxisSize.min,
                   spacing: context.gutter,
-                  children: [
-                    const Expanded(
-                      child: _MyNameCardInfo(),
-                    ),
-                    const Expanded(
-                      child: _WhatImDoingCard(),
-                    ),
+                  children: const [
+                    _MyNameCardInfo(),
+                    _WhatImDoingCard(),
                   ],
-                ),
-              );
-            }
-          },
-        ),
-      ],
+                );
+              } else {
+                return IntrinsicHeight(
+                  child: Row(
+                    spacing: context.gutter,
+                    children: [
+                      const Expanded(
+                        child: _MyNameCardInfo(),
+                      ),
+                      const Expanded(
+                        child: _WhatImDoingCard(),
+                      ),
+                    ],
+                  ),
+                );
+              }
+            },
+          ),
+        ],
+      ),
     );
   }
 }

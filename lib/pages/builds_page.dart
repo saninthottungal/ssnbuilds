@@ -13,99 +13,101 @@ class BuildsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: [
-        //* Header
-        SliverToBoxAdapter(
-          child: ContentWrapper(
+    return Scaffold(
+      body: CustomScrollView(
+        slivers: [
+          //* Header
+          SliverToBoxAdapter(
+            child: ContentWrapper(
+              child: Text(
+                "Builds Showcase",
+                style: context.textTheme.headlineMedium?.copyWith(
+                  fontFamily: 'minecraft_block',
+                  color: context.colorScheme.onPrimaryContainer,
+                ),
+              ),
+            ),
+          ),
+
+          //* spacing
+          const SliverToBoxAdapter(child: Gutter()),
+
+          SliverToBoxAdapter(
             child: Text(
-              "Builds Showcase",
-              style: context.textTheme.headlineMedium?.copyWith(
+              "Flutter Builds",
+              style: context.textTheme.titleLarge?.copyWith(
                 fontFamily: 'minecraft_block',
-                color: context.colorScheme.onPrimaryContainer,
               ),
             ),
           ),
-        ),
 
-        //* spacing
-        const SliverToBoxAdapter(child: Gutter()),
+          //* flutter projects grid
+          SliverGrid.builder(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: context.isMobile ? 1 : 2,
+              mainAxisSpacing: context.gutter,
+              crossAxisSpacing: context.gutter,
+              mainAxisExtent: 270,
+            ),
+            itemCount: _flutterProjects.length,
+            itemBuilder: (context, index) {
+              final project = _flutterProjects[index];
 
-        SliverToBoxAdapter(
-          child: Text(
-            "Flutter Builds",
-            style: context.textTheme.titleLarge?.copyWith(
-              fontFamily: 'minecraft_block',
+              return ContentWrapper(
+                leading: project.leading,
+                title: project.title,
+                trailingWidget: GithubLogoText(
+                  onTap: () {
+                    //* Launch Github url
+                    final url = Uri.parse(project.githubUrl);
+                    launchUrl(url, mode: .externalApplication);
+                  },
+                ),
+                child: Text(project.description),
+              );
+            },
+          ),
+
+          //* spacing
+          const SliverToBoxAdapter(child: Gutter.large()),
+
+          SliverToBoxAdapter(
+            child: Text(
+              "C Builds",
+              style: context.textTheme.titleLarge?.copyWith(
+                fontFamily: 'minecraft_block',
+              ),
             ),
           ),
-        ),
 
-        //* flutter projects grid
-        SliverGrid.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: context.isMobile ? 1 : 2,
-            mainAxisSpacing: context.gutter,
-            crossAxisSpacing: context.gutter,
-            mainAxisExtent: 270,
-          ),
-          itemCount: _flutterProjects.length,
-          itemBuilder: (context, index) {
-            final project = _flutterProjects[index];
-
-            return ContentWrapper(
-              leading: project.leading,
-              title: project.title,
-              trailingWidget: GithubLogoText(
-                onTap: () {
-                  //* Launch Github url
-                  final url = Uri.parse(project.githubUrl);
-                  launchUrl(url, mode: .externalApplication);
-                },
-              ),
-              child: Text(project.description),
-            );
-          },
-        ),
-
-        //* spacing
-        const SliverToBoxAdapter(child: Gutter.large()),
-
-        SliverToBoxAdapter(
-          child: Text(
-            "C Builds",
-            style: context.textTheme.titleLarge?.copyWith(
-              fontFamily: 'minecraft_block',
+          //* C projects grid
+          SliverGrid.builder(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: context.isMobile ? 1 : 2,
+              mainAxisSpacing: context.gutter,
+              crossAxisSpacing: context.gutter,
+              mainAxisExtent: 270,
             ),
-          ),
-        ),
+            itemCount: _cProjects.length,
+            itemBuilder: (context, index) {
+              final project = _cProjects[index];
 
-        //* C projects grid
-        SliverGrid.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: context.isMobile ? 1 : 2,
-            mainAxisSpacing: context.gutter,
-            crossAxisSpacing: context.gutter,
-            mainAxisExtent: 270,
+              return ContentWrapper(
+                leading: project.leading,
+                title: project.title,
+                trailingWidget: GithubLogoText(
+                  onTap: () {
+                    //* Launch Github url
+                    final url = Uri.parse(project.githubUrl);
+                    launchUrl(url, mode: .externalApplication);
+                  },
+                ),
+                child: Text(project.description),
+              );
+            },
           ),
-          itemCount: _cProjects.length,
-          itemBuilder: (context, index) {
-            final project = _cProjects[index];
-
-            return ContentWrapper(
-              leading: project.leading,
-              title: project.title,
-              trailingWidget: GithubLogoText(
-                onTap: () {
-                  //* Launch Github url
-                  final url = Uri.parse(project.githubUrl);
-                  launchUrl(url, mode: .externalApplication);
-                },
-              ),
-              child: Text(project.description),
-            );
-          },
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

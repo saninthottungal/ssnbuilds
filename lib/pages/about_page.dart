@@ -12,16 +12,18 @@ class AboutPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        const _DpAndBio(),
+    return Scaffold(
+      body: ListView(
+        children: [
+          const _DpAndBio(),
 
-        //* Skills and Technologies
-        const _SkillsAndTech(),
+          //* Skills and Technologies
+          const _SkillsAndTech(),
 
-        //* Experience and Education
-        const _ExperienceAndEducation(),
-      ].separatedBy(const Gutter()),
+          //* Experience and Education
+          const _ExperienceAndEducation(),
+        ].separatedBy(const Gutter()),
+      ),
     );
   }
 }
