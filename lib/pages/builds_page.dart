@@ -153,6 +153,12 @@ class BuildsPage extends StatelessWidget {
 
 final List<ProjectModel> _flutterProjects = [
   ProjectModel(
+    leading: Icons.event,
+    title: 'Hostpro',
+    description: ContentConsts.builds.hostproDesc,
+  ),
+
+  ProjectModel(
     leading: Icons.connect_without_contact,
     title: 'Nyburs',
     description: ContentConsts.builds.nybursDesc,

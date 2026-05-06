@@ -43,6 +43,13 @@ This was my first Flutter project, developed to simplify finding bus timings in 
  Unlike traditional global social networks, it emphasizes "social connectivity" through pre-segmented feeds and support for over 12 Indian languages and local dialects to remove communication barriers. 
 
 ''';
+
+  final String hostproDesc = '''
+An app that connects individuals with part-time work opportunities at events hosted by HostPro events.
+Inlcuding all kind of events From concerts and corporate gatherings to exhibitions and celebrations.
+Browsing upcoming events, applying for positions that match user's skills, and managing event work,
+all included in one app.
+''';
 }
 
 class _About {
