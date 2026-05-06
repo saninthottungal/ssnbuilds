@@ -16,35 +16,29 @@ class AppShellUI extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: NestedScrollView(
-        physics: const ClampingScrollPhysics(),
-        headerSliverBuilder: (context, _) {
-          return [
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: EdgeInsets.symmetric(vertical: context.gutterSmall),
-                child: Row(
-                  children: [
-                    //* Logo
-                    Image.asset(
-                      Assets.logo.textLogo.path,
-                      width: 200,
-                      height: 50,
-                    ),
-
-                    //* Spacer
-                    const Spacer(),
-
-                    const _Tabs(),
-                  ],
-                ),
+    return Column(
+      children: [
+        Padding(
+          padding: EdgeInsets.symmetric(vertical: context.gutterSmall),
+          child: Row(
+            children: [
+              //* Logo
+              Image.asset(
+                Assets.logo.textLogo.path,
+                width: 200,
+                height: 50,
               ),
-            ),
-          ];
-        },
-        body: child,
-      ),
+
+              //* Spacer
+              const Spacer(),
+
+              const _Tabs(),
+            ],
+          ),
+        ),
+
+        Expanded(child: child),
+      ],
     );
   }
 }
