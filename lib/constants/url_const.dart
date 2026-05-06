@@ -19,4 +19,10 @@ class URLConsts {
       'https://github.com/saninthottungal/c-projects/tree/main/tic_tac_toe';
   static const cRockPaperScissorsGithub =
       'https://github.com/saninthottungal/rock-paper-scissors-in-C';
+
+  static const nybursAppstore =
+      'https://apps.apple.com/in/app/nyburs-hyperlocal-social-app/id6550898228';
+
+  static const nybursPlaystore =
+      'https://play.google.com/store/apps/details?id=com.nyburs.app';
 }

@@ -137,7 +137,8 @@ final List<ProjectModel> _flutterProjects = [
     leading: Icons.connect_without_contact,
     title: 'Nyburs',
     description: ContentConsts.builds.nybursDesc,
-    githubUrl: URLConsts.pennyBoxGithub,
+    playstoreUrl: URLConsts.nybursPlaystore,
+    appstoreUrl: URLConsts.nybursAppstore,
   ),
 
   ProjectModel(
