@@ -4,6 +4,7 @@ import 'package:ssnbuilds/constants/content_const.dart';
 import 'package:ssnbuilds/extensions/context_ext.dart';
 import 'package:ssnbuilds/extensions/list_ext.dart';
 import 'package:ssnbuilds/gen/assets.gen.dart';
+import 'package:ssnbuilds/widgets/app_footer.dart';
 import 'package:ssnbuilds/widgets/content_wrapper.dart';
 import 'package:ssnbuilds/widgets/social_media_row.dart';
 
@@ -13,8 +14,8 @@ class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
-        children: [
+      body: CustomScrollView(
+        slivers: [
           const _DpAndBio(),
 
           //* Skills and Technologies
@@ -22,7 +23,12 @@ class AboutPage extends StatelessWidget {
 
           //* Experience and Education
           const _ExperienceAndEducation(),
-        ].separatedBy(const Gutter()),
+
+          const SliverFillRemaining(
+            hasScrollBody: false,
+            child: AppFooter(),
+          ),
+        ].separatedBy(const SliverToBoxAdapter(child: Gutter())),
       ),
     );
   }
@@ -33,35 +39,37 @@ class _DpAndBio extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, _) {
-        if (context.isMobile) {
-          return Column(
-            mainAxisSize: MainAxisSize.min,
-            spacing: context.gutter,
-            children: const [
-              _DP(),
-              _Bio(),
-            ],
-          );
-        } else {
-          return IntrinsicHeight(
-            child: Row(
+    return SliverToBoxAdapter(
+      child: LayoutBuilder(
+        builder: (context, _) {
+          if (context.isMobile) {
+            return Column(
+              mainAxisSize: MainAxisSize.min,
               spacing: context.gutter,
-              children: [
-                //* DP
-                const Expanded(child: _DP()),
-
-                //* Bio
-                const Expanded(
-                  flex: 2,
-                  child: _Bio(),
-                ),
+              children: const [
+                _DP(),
+                _Bio(),
               ],
-            ),
-          );
-        }
-      },
+            );
+          } else {
+            return IntrinsicHeight(
+              child: Row(
+                spacing: context.gutter,
+                children: [
+                  //* DP
+                  const Expanded(child: _DP()),
+
+                  //* Bio
+                  const Expanded(
+                    flex: 2,
+                    child: _Bio(),
+                  ),
+                ],
+              ),
+            );
+          }
+        },
+      ),
     );
   }
 }
@@ -139,23 +147,25 @@ class _SkillsAndTech extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ContentWrapper(
-      leading: Icons.handyman_outlined,
-      title: 'Skills and Techs',
-      child: Wrap(
-        alignment: WrapAlignment.center,
-        children: List.generate(
-          ContentConsts.about.skillsAndTechs.length,
-          (index) {
-            return ContentWrapper(
-              padding: EdgeInsets.all(context.gutterTiny),
+    return SliverToBoxAdapter(
+      child: ContentWrapper(
+        leading: Icons.handyman_outlined,
+        title: 'Skills and Techs',
+        child: Wrap(
+          alignment: WrapAlignment.center,
+          children: List.generate(
+            ContentConsts.about.skillsAndTechs.length,
+            (index) {
+              return ContentWrapper(
+                padding: EdgeInsets.all(context.gutterTiny),
 
-              margin: EdgeInsets.all(context.gutterTiny),
-              child: Text(
-                ContentConsts.about.skillsAndTechs[index],
-              ),
-            );
-          },
+                margin: EdgeInsets.all(context.gutterTiny),
+                child: Text(
+                  ContentConsts.about.skillsAndTechs[index],
+                ),
+              );
+            },
+          ),
         ),
       ),
     );
@@ -167,35 +177,37 @@ class _ExperienceAndEducation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, _) {
-        if (context.isMobile) {
-          return Column(
-            mainAxisSize: MainAxisSize.min,
-            spacing: context.gutter,
-            children: const [
-              //* Experience
-              _Experience(),
-
-              //* Education
-              _Education(),
-            ],
-          );
-        } else {
-          return IntrinsicHeight(
-            child: Row(
+    return SliverToBoxAdapter(
+      child: LayoutBuilder(
+        builder: (context, _) {
+          if (context.isMobile) {
+            return Column(
+              mainAxisSize: MainAxisSize.min,
               spacing: context.gutter,
-              children: [
+              children: const [
                 //* Experience
-                const Expanded(child: _Experience()),
+                _Experience(),
 
                 //* Education
-                const Expanded(child: _Education()),
+                _Education(),
               ],
-            ),
-          );
-        }
-      },
+            );
+          } else {
+            return IntrinsicHeight(
+              child: Row(
+                spacing: context.gutter,
+                children: [
+                  //* Experience
+                  const Expanded(child: _Experience()),
+
+                  //* Education
+                  const Expanded(child: _Education()),
+                ],
+              ),
+            );
+          }
+        },
+      ),
     );
   }
 }

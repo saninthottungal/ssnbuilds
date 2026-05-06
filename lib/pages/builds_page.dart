@@ -4,6 +4,7 @@ import 'package:ssnbuilds/constants/content_const.dart';
 import 'package:ssnbuilds/constants/url_const.dart';
 import 'package:ssnbuilds/extensions/context_ext.dart';
 import 'package:ssnbuilds/models/project_model.dart';
+import 'package:ssnbuilds/widgets/app_footer.dart';
 import 'package:ssnbuilds/widgets/content_wrapper.dart';
 import 'package:ssnbuilds/widgets/github_logo_text.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -105,6 +106,13 @@ class BuildsPage extends StatelessWidget {
                 child: Text(project.description),
               );
             },
+          ),
+
+          const SliverToBoxAdapter(child: GutterLarge()),
+
+          const SliverFillRemaining(
+            hasScrollBody: false,
+            child: AppFooter(),
           ),
         ],
       ),
