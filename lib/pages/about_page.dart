@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
 import 'package:ssnbuilds/constants/content_const.dart';
+import 'package:ssnbuilds/constants/url_const.dart';
 import 'package:ssnbuilds/extensions/context_ext.dart';
 import 'package:ssnbuilds/extensions/list_ext.dart';
 import 'package:ssnbuilds/gen/assets.gen.dart';
 import 'package:ssnbuilds/widgets/app_footer.dart';
 import 'package:ssnbuilds/widgets/content_wrapper.dart';
 import 'package:ssnbuilds/widgets/social_media_row.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
@@ -145,7 +147,10 @@ class _Bio extends StatelessWidget {
           Align(
             alignment: .centerRight,
             child: TextButton(
-              onPressed: () {},
+              onPressed: () {
+                final uri = Uri.parse(URLConsts.resume);
+                launchUrl(uri, mode: .externalApplication);
+              },
               child: const Text("download cv"),
             ),
           ),
