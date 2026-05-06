@@ -89,6 +89,14 @@ class _MyNameCardInfo extends StatelessWidget {
             "A Software Developer.",
             style: context.textTheme.headlineSmall,
           ),
+
+          const GutterSmall(),
+          Text(
+            '"Scratching through the soul of system, duh"',
+            style: context.textTheme.bodyMedium?.copyWith(
+              backgroundColor: context.colorScheme.secondaryContainer,
+            ),
+          ),
         ],
       ),
     );
