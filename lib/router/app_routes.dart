@@ -34,8 +34,8 @@ class HomeRoute extends GoRouteData with $HomeRoute {
   const HomeRoute();
 
   @override
-  Widget build(BuildContext context, GoRouterState state) {
-    return const HomePage();
+  Page<void> buildPage(BuildContext context, GoRouterState state) {
+    return const NoTransitionPage(child: HomePage());
   }
 }
 
@@ -43,8 +43,8 @@ class BuildsRoute extends GoRouteData with $BuildsRoute {
   const BuildsRoute();
 
   @override
-  Widget build(BuildContext context, GoRouterState state) {
-    return const BuildsPage();
+  Page<void> buildPage(BuildContext context, GoRouterState state) {
+    return const NoTransitionPage(child: BuildsPage());
   }
 }
 
@@ -52,7 +52,7 @@ class AboutRoute extends GoRouteData with $AboutRoute {
   const AboutRoute();
 
   @override
-  Widget build(BuildContext context, GoRouterState state) {
-    return const AboutPage();
+  Page<void> buildPage(BuildContext context, GoRouterState state) {
+    return const NoTransitionPage(child: AboutPage());
   }
 }
