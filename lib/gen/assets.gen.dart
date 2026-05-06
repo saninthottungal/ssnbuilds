@@ -35,8 +35,11 @@ class $AssetsImagesGen {
   AssetGenImage get dpCharacter =>
       const AssetGenImage('assets/images/dp_character.png');
 
+  /// File path: assets/images/splash.gif
+  AssetGenImage get splash => const AssetGenImage('assets/images/splash.gif');
+
   /// List of all assets
-  List<AssetGenImage> get values => [dpCharacter];
+  List<AssetGenImage> get values => [dpCharacter, splash];
 }
 
 class $AssetsLogoGen {
