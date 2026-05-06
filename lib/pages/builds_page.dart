@@ -59,12 +59,31 @@ class BuildsPage extends StatelessWidget {
                 title: project.title,
                 trailingWidget: Row(
                   mainAxisAlignment: .end,
+                  spacing: context.gutterTiny,
                   children: [
                     if (project.githubUrl case final gUrl?)
                       GithubLogoText(
                         onTap: () {
                           //* Launch Github url
                           final url = Uri.parse(gUrl);
+                          launchUrl(url, mode: .externalApplication);
+                        },
+                      ),
+
+                    if (project.appstoreUrl case final appUrl?)
+                      AppstoreIcon(
+                        onTap: () {
+                          //* Launch Github url
+                          final url = Uri.parse(appUrl);
+                          launchUrl(url, mode: .externalApplication);
+                        },
+                      ),
+
+                    if (project.playstoreUrl case final playUrl?)
+                      PlaystoreIcon(
+                        onTap: () {
+                          //* Launch Github url
+                          final url = Uri.parse(playUrl);
                           launchUrl(url, mode: .externalApplication);
                         },
                       ),

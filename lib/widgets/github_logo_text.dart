@@ -43,3 +43,59 @@ class GithubLogoText extends StatelessWidget {
     );
   }
 }
+
+class PlaystoreIcon extends StatelessWidget {
+  const PlaystoreIcon({
+    super.key,
+    this.onTap,
+  });
+
+  final VoidCallback? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      behavior: HitTestBehavior.translucent,
+      child: Container(
+        padding: const EdgeInsets.all(2),
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: context.colorScheme.onPrimaryContainer,
+        ),
+
+        child: Assets.icons.playstore.image(
+          height: 16,
+        ),
+      ),
+    );
+  }
+}
+
+class AppstoreIcon extends StatelessWidget {
+  const AppstoreIcon({
+    super.key,
+    this.onTap,
+  });
+
+  final VoidCallback? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      behavior: HitTestBehavior.translucent,
+      child: Container(
+        padding: const EdgeInsets.all(2),
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: context.colorScheme.onPrimaryContainer,
+        ),
+
+        child: Assets.icons.appstore.image(
+          height: 16,
+        ),
+      ),
+    );
+  }
+}
