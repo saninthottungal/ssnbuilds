@@ -23,6 +23,7 @@ class HomePage extends StatelessWidget {
                     spacing: context.gutter,
                     children: const [
                       _MyNameCardInfo(),
+                      _CurrentProject(),
                       _WhatImDoingCard(),
                     ],
                   );
@@ -90,11 +91,13 @@ class _MyNameCardInfo extends StatelessWidget {
             style: context.textTheme.headlineSmall,
           ),
 
-          const GutterSmall(),
-          Text(
-            '"Scratching through the soul of system, duh"',
-            style: context.textTheme.bodyMedium?.copyWith(
-              backgroundColor: context.colorScheme.secondaryContainer,
+          Padding(
+            padding: .symmetric(vertical: context.gutterTiny),
+            child: Text(
+              '"Scratching through the soul of system, duh."',
+              style: context.textTheme.bodyMedium?.copyWith(
+                backgroundColor: context.colorScheme.secondaryContainer,
+              ),
             ),
           ),
         ],
