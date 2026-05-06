@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
@@ -18,6 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       routerConfig: appRouter,
+      scrollBehavior: NoThumbScrollBehavior().copyWith(scrollbars: false),
       title: "ssnbuilds",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -51,4 +54,14 @@ class MyApp extends StatelessWidget {
       },
     );
   }
+}
+
+class NoThumbScrollBehavior extends ScrollBehavior {
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+    PointerDeviceKind.touch,
+    PointerDeviceKind.mouse,
+    PointerDeviceKind.stylus,
+    PointerDeviceKind.trackpad,
+  };
 }
