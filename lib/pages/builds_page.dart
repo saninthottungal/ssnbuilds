@@ -57,12 +57,18 @@ class BuildsPage extends StatelessWidget {
               return ContentWrapper(
                 leading: project.leading,
                 title: project.title,
-                trailingWidget: GithubLogoText(
-                  onTap: () {
-                    //* Launch Github url
-                    final url = Uri.parse(project.githubUrl);
-                    launchUrl(url, mode: .externalApplication);
-                  },
+                trailingWidget: Row(
+                  mainAxisAlignment: .end,
+                  children: [
+                    if (project.githubUrl case final gUrl?)
+                      GithubLogoText(
+                        onTap: () {
+                          //* Launch Github url
+                          final url = Uri.parse(gUrl);
+                          launchUrl(url, mode: .externalApplication);
+                        },
+                      ),
+                  ],
                 ),
                 child: Text(project.description),
               );
@@ -96,12 +102,18 @@ class BuildsPage extends StatelessWidget {
               return ContentWrapper(
                 leading: project.leading,
                 title: project.title,
-                trailingWidget: GithubLogoText(
-                  onTap: () {
-                    //* Launch Github url
-                    final url = Uri.parse(project.githubUrl);
-                    launchUrl(url, mode: .externalApplication);
-                  },
+                trailingWidget: Row(
+                  mainAxisAlignment: .end,
+                  children: [
+                    if (project.githubUrl case final gUrl?)
+                      GithubLogoText(
+                        onTap: () {
+                          //* Launch Github url
+                          final url = Uri.parse(gUrl);
+                          launchUrl(url, mode: .externalApplication);
+                        },
+                      ),
+                  ],
                 ),
                 child: Text(project.description),
               );

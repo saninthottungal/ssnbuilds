@@ -5,11 +5,11 @@ class ProjectModel {
     required this.leading,
     required this.title,
     required this.description,
-    required this.githubUrl,
+    this.githubUrl,
   });
 
   final IconData leading;
   final String title;
   final String description;
-  final String githubUrl;
+  final String? githubUrl;
 }
