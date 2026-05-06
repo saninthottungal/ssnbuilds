@@ -134,12 +134,7 @@ final List<ProjectModel> _flutterProjects = [
     description: ContentConsts.builds.pennyBoxDesc,
     githubUrl: URLConsts.pennyBoxGithub,
   ),
-  ProjectModel(
-    leading: Icons.monetization_on,
-    title: 'Penny Box',
-    description: ContentConsts.builds.pennyBoxDesc,
-    githubUrl: URLConsts.pennyBoxGithub,
-  ),
+
   ProjectModel(
     leading: Icons.flight,
     title: 'Fair Flights',
