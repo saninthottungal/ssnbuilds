@@ -24,7 +24,9 @@ class MyShellRouteData extends ShellRouteData {
   static final GlobalKey<NavigatorState> $navigatorKey = shellNavigatorKey;
 
   @override
-  Widget builder(BuildContext context, GoRouterState state, Widget navigator) {}
+  Widget builder(BuildContext context, GoRouterState state, Widget navigator) {
+    return Scaffold(body: navigator);
+  }
 }
 
 class HomeRoute extends GoRouteData with $HomeRoute {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:ssnbuilds/pages/app_container.dart';
+import 'package:ssnbuilds/router/app_router.dart';
 import 'package:ssnbuilds/widgets/animated_intro.dart';
 
 void main() {
@@ -16,7 +16,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: appRouter,
       title: "ssnbuilds",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -28,7 +29,6 @@ class MyApp extends StatelessWidget {
 
         fontFamily: 'minecraft',
       ),
-      home: const AppContainer(),
       builder: (context, child) {
         return ResponsiveBreakpoints.builder(
           breakpoints: [
