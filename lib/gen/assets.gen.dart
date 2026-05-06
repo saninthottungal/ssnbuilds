@@ -59,12 +59,15 @@ class $AssetsImagesGen {
 class $AssetsLogoGen {
   const $AssetsLogoGen();
 
+  /// File path: assets/logo/hostpro.png
+  AssetGenImage get hostpro => const AssetGenImage('assets/logo/hostpro.png');
+
   /// File path: assets/logo/text_logo.png
   AssetGenImage get textLogo =>
       const AssetGenImage('assets/logo/text_logo.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [textLogo];
+  List<AssetGenImage> get values => [hostpro, textLogo];
 }
 
 class Assets {
