@@ -12,8 +12,8 @@ class AboutPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverMainAxisGroup(
-      slivers: [
+    return ListView(
+      children: [
         const _DpAndBio(),
 
         //* Skills and Technologies
@@ -21,7 +21,7 @@ class AboutPage extends StatelessWidget {
 
         //* Experience and Education
         const _ExperienceAndEducation(),
-      ].separatedBy(const SliverToBoxAdapter(child: Gutter())),
+      ].separatedBy(const Gutter()),
     );
   }
 }
@@ -31,37 +31,35 @@ class _DpAndBio extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverToBoxAdapter(
-      child: LayoutBuilder(
-        builder: (context, _) {
-          if (context.isMobile) {
-            return Column(
-              mainAxisSize: MainAxisSize.min,
+    return LayoutBuilder(
+      builder: (context, _) {
+        if (context.isMobile) {
+          return Column(
+            mainAxisSize: MainAxisSize.min,
+            spacing: context.gutter,
+            children: const [
+              _DP(),
+              _Bio(),
+            ],
+          );
+        } else {
+          return IntrinsicHeight(
+            child: Row(
               spacing: context.gutter,
-              children: const [
-                _DP(),
-                _Bio(),
-              ],
-            );
-          } else {
-            return IntrinsicHeight(
-              child: Row(
-                spacing: context.gutter,
-                children: [
-                  //* DP
-                  const Expanded(child: _DP()),
+              children: [
+                //* DP
+                const Expanded(child: _DP()),
 
-                  //* Bio
-                  const Expanded(
-                    flex: 2,
-                    child: _Bio(),
-                  ),
-                ],
-              ),
-            );
-          }
-        },
-      ),
+                //* Bio
+                const Expanded(
+                  flex: 2,
+                  child: _Bio(),
+                ),
+              ],
+            ),
+          );
+        }
+      },
     );
   }
 }
@@ -139,25 +137,23 @@ class _SkillsAndTech extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverToBoxAdapter(
-      child: ContentWrapper(
-        leading: Icons.handyman_outlined,
-        title: 'Skills and Techs',
-        child: Wrap(
-          alignment: WrapAlignment.center,
-          children: List.generate(
-            ContentConsts.about.skillsAndTechs.length,
-            (index) {
-              return ContentWrapper(
-                padding: EdgeInsets.all(context.gutterTiny),
+    return ContentWrapper(
+      leading: Icons.handyman_outlined,
+      title: 'Skills and Techs',
+      child: Wrap(
+        alignment: WrapAlignment.center,
+        children: List.generate(
+          ContentConsts.about.skillsAndTechs.length,
+          (index) {
+            return ContentWrapper(
+              padding: EdgeInsets.all(context.gutterTiny),
 
-                margin: EdgeInsets.all(context.gutterTiny),
-                child: Text(
-                  ContentConsts.about.skillsAndTechs[index],
-                ),
-              );
-            },
-          ),
+              margin: EdgeInsets.all(context.gutterTiny),
+              child: Text(
+                ContentConsts.about.skillsAndTechs[index],
+              ),
+            );
+          },
         ),
       ),
     );
@@ -169,37 +165,35 @@ class _ExperienceAndEducation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverToBoxAdapter(
-      child: LayoutBuilder(
-        builder: (context, _) {
-          if (context.isMobile) {
-            return Column(
-              mainAxisSize: MainAxisSize.min,
+    return LayoutBuilder(
+      builder: (context, _) {
+        if (context.isMobile) {
+          return Column(
+            mainAxisSize: MainAxisSize.min,
+            spacing: context.gutter,
+            children: const [
+              //* Experience
+              _Experience(),
+
+              //* Education
+              _Education(),
+            ],
+          );
+        } else {
+          return IntrinsicHeight(
+            child: Row(
               spacing: context.gutter,
-              children: const [
+              children: [
                 //* Experience
-                _Experience(),
+                const Expanded(child: _Experience()),
 
                 //* Education
-                _Education(),
+                const Expanded(child: _Education()),
               ],
-            );
-          } else {
-            return IntrinsicHeight(
-              child: Row(
-                spacing: context.gutter,
-                children: [
-                  //* Experience
-                  const Expanded(child: _Experience()),
-
-                  //* Education
-                  const Expanded(child: _Education()),
-                ],
-              ),
-            );
-          }
-        },
-      ),
+            ),
+          );
+        }
+      },
     );
   }
 }

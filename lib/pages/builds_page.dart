@@ -13,7 +13,7 @@ class BuildsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverMainAxisGroup(
+    return CustomScrollView(
       slivers: [
         //* Header
         SliverToBoxAdapter(
