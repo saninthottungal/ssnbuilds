@@ -14,6 +14,10 @@ import 'package:flutter/widgets.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/appstore.png
+  AssetGenImage get appstore =>
+      const AssetGenImage('assets/icons/appstore.png');
+
   /// File path: assets/icons/github.png
   AssetGenImage get github => const AssetGenImage('assets/icons/github.png');
 
@@ -21,11 +25,21 @@ class $AssetsIconsGen {
   AssetGenImage get linkedin =>
       const AssetGenImage('assets/icons/linkedin.png');
 
+  /// File path: assets/icons/playstore.png
+  AssetGenImage get playstore =>
+      const AssetGenImage('assets/icons/playstore.png');
+
   /// File path: assets/icons/twitter.png
   AssetGenImage get twitter => const AssetGenImage('assets/icons/twitter.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [github, linkedin, twitter];
+  List<AssetGenImage> get values => [
+    appstore,
+    github,
+    linkedin,
+    playstore,
+    twitter,
+  ];
 }
 
 class $AssetsImagesGen {

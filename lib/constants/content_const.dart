@@ -37,6 +37,12 @@ A regional bus tracking application designed to view local transit schedules.
 Users input a departure point, a destination, and a preferred time to see a list of upcoming bus arrivals on that specific route. 
 This was my first Flutter project, developed to simplify finding bus timings in areas where real-time GPS data may not be readily available.
 ''';
+
+  final String nybursDesc = '''
+ A hyperlocal social media platform designed specifically for the Indian market, focusing on connecting users within their immediate geographic communities ranging from the village to the state level. 
+ Unlike traditional global social networks, it emphasizes "social connectivity" through pre-segmented feeds and support for over 12 Indian languages and local dialects to remove communication barriers. 
+
+''';
 }
 
 class _About {
