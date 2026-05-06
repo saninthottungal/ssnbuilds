@@ -134,9 +134,22 @@ class _Bio extends StatelessWidget {
       leading: Icons.info_outline,
       title: "Bio Log",
       trailing: "page 1 of 1",
-      child: Text(
-        ContentConsts.about.bio,
-        style: context.textTheme.bodyLarge,
+      child: Column(
+        mainAxisSize: .min,
+        children: [
+          Text(
+            ContentConsts.about.bio,
+            style: context.textTheme.bodyLarge,
+          ),
+
+          Align(
+            alignment: .centerRight,
+            child: TextButton(
+              onPressed: () {},
+              child: const Text("download cv"),
+            ),
+          ),
+        ],
       ),
     );
   }
