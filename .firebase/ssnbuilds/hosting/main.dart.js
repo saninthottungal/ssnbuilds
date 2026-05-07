@@ -79262,7 +79262,7 @@ A.Nl.prototype={
 J(a){var s=null
 return A.jJ(A.ee(A.c([A.dk("I'm a software developer primarily building mobile apps with flutter. and seriously, i love doing this...\u2665\n\nRight now, I'm working as a Flutter Developer while also preparing for my masters and hoping to get into a good college.\ni'm into C programming as well, and been doing some flutter and C interoperability lately, fun stuff.\n\nBy the way, have you read \"Code : The Hidden Language of Computer Hardware and Software\" by Charles Petzold?, it's a great read--i'm on Chapter 11 now.\n",s,s,A.a6(a).ok.y,s),new A.iq(B.l1,s,s,A.acs(B.Ss,new A.aeT(),s),s)],t.p),B.L,B.J,B.bn,0),s,B.DD,s,s,"Bio Log","page 1 of 1",s,s)}}
 A.aeT.prototype={
-$0(){A.q6(A.cE("https://raw.githubusercontent.com/saninthottungal/ssnbuilds/simple/public/resume/sanin_resume.pdf",0,null),B.cW)},
+$0(){A.q6(A.cE("https://raw.githubusercontent.com/saninthottungal/ssnbuilds/main/public/resume/SANIN_RESUME.pdf",0,null),B.cW)},
 $S:0}
 A.SR.prototype={
 J(a){var s,r,q,p,o=null,n=J.a24(12,t.l7)
