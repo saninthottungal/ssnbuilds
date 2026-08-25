@@ -156,6 +156,8 @@ final List<ProjectModel> _flutterProjects = [
     leading: Icons.event,
     title: 'Hostpro',
     description: ContentConsts.builds.hostproDesc,
+    playstoreUrl: URLConsts.hostproPlaystore,
+    appstoreUrl: URLConsts.hostproAppstore,
   ),
 
   ProjectModel(

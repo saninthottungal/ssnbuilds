@@ -25,4 +25,10 @@ class URLConsts {
 
   static const nybursPlaystore =
       'https://play.google.com/store/apps/details?id=com.nyburs.app';
+
+  static const hostproAppstore =
+      'https://apps.apple.com/in/app/hostpro-events/id6801990033';
+
+  static const hostproPlaystore =
+      'https://play.google.com/store/apps/details?id=com.hostpro.app';
 }
