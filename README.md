@@ -18,3 +18,4 @@ samples, guidance on mobile development, and a full API reference.
 # Build command
 
 flutter build web --pwa-strategy=none
+firebase deploy --only hosting
