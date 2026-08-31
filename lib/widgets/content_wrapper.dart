@@ -34,9 +34,9 @@ class ContentWrapper extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
         border: Border.all(
-          color: context.colorScheme.outline,
+          color: context.colorScheme.primary,
         ),
-        color: context.colorScheme.surfaceContainer,
+        color: context.colorScheme.surfaceContainerLow,
         borderRadius: BorderRadius.all(
           Radius.circular(context.gutterTiny),
         ),
@@ -56,22 +56,22 @@ class ContentWrapper extends StatelessWidget {
 
                 border: Border(
                   bottom: BorderSide(
-                    color: context.colorScheme.outline,
+                    color: context.colorScheme.primary,
                   ),
                 ),
               ),
               padding: EdgeInsets.symmetric(
                 horizontal: context.gutterSmall,
-                vertical: context.gutterTiny,
+                vertical: context.gutterTiny + 2,
               ),
               child: Row(
-                spacing: context.gutterTiny,
+                spacing: context.gutterTiny + 2,
                 children: [
                   //* Leading
                   if (leading != null)
                     Icon(
                       leading,
-                      size: 14,
+                      size: 18,
                       color: context.colorScheme.onPrimaryContainer,
                     ),
 
@@ -79,7 +79,7 @@ class ContentWrapper extends StatelessWidget {
                   if (title != null)
                     Text(
                       title ?? '',
-                      style: context.textTheme.titleSmall?.copyWith(
+                      style: context.textTheme.labelSmall?.copyWith(
                         color: context.colorScheme.onPrimaryContainer,
                       ),
                       overflow: TextOverflow.ellipsis,

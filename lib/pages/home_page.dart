@@ -69,7 +69,7 @@ class _MyNameCardInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ContentWrapper(
-      leading: Icons.safety_divider_outlined,
+      leading: Icons.terminal,
       title: 'Hello World🎉',
       contentCrossAxisAlignment: .start,
       child: Column(
