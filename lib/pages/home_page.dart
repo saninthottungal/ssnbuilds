@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:ssnbuilds/extensions/context_ext.dart';
 import 'package:ssnbuilds/gen/assets.gen.dart';
 import 'package:ssnbuilds/widgets/app_footer.dart';
@@ -77,18 +78,21 @@ class _MyNameCardInfo extends StatelessWidget {
         children: [
           Text(
             "For starters,",
-            style: context.textTheme.headlineSmall,
+            style: context.textTheme.headlineSmall?.copyWith(
+              color: context.colorScheme.onSurface,
+            ),
           ),
           Text(
-            "I am sanin T.",
-            style: context.textTheme.displayLarge?.copyWith(
-              fontFamily: 'minecraft_block',
-              color: context.colorScheme.onPrimaryContainer,
+            "I AM SANIN T.",
+            style: GoogleFonts.spaceGroteskTextTheme().displayLarge?.copyWith(
+              color: context.colorScheme.primary,
             ),
           ),
           Text(
             "A Software Developer.",
-            style: context.textTheme.headlineSmall,
+            style: context.textTheme.headlineSmall?.copyWith(
+              color: context.colorScheme.onSurface,
+            ),
           ),
 
           Padding(
