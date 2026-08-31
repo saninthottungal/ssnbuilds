@@ -5,6 +5,7 @@ import 'package:flutter_gutter/flutter_gutter.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:ssnbuilds/router/app_router.dart';
+import 'package:ssnbuilds/theme/app_theme.dart';
 import 'package:ssnbuilds/widgets/animated_intro.dart';
 
 void main() {
@@ -23,15 +24,7 @@ class MyApp extends StatelessWidget {
       scrollBehavior: NoThumbScrollBehavior().copyWith(scrollbars: false),
       title: "ssnbuilds",
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xff3b8527),
-          brightness: Brightness.dark,
-        ),
-        useMaterial3: true,
-
-        fontFamily: 'minecraft',
-      ),
+      theme: getAppTheme(),
       builder: (context, child) {
         return ResponsiveBreakpoints.builder(
           breakpoints: [
@@ -43,10 +36,7 @@ class MyApp extends StatelessWidget {
             child: Center(
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: context.gutter),
-                child: ConstrainedBox(
-                  constraints: const BoxConstraints(maxWidth: 900),
-                  child: AnimatedIntro(child: child!),
-                ),
+                child: AnimatedIntro(child: child!),
               ),
             ),
           ),
