@@ -36,7 +36,10 @@ class MyApp extends StatelessWidget {
             child: Center(
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: context.gutter),
-                child: AnimatedIntro(child: child!),
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 1200),
+                  child: AnimatedIntro(child: child!),
+                ),
               ),
             ),
           ),
