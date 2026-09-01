@@ -191,7 +191,7 @@ class _WhatImDoingCard extends StatelessWidget {
       child: Column(
         spacing: context.gutterSmall,
         children: [
-          const ContentWrapper(
+          const ContentWrapperMini(
             contentCrossAxisAlignment: .start,
             leading: Icons.book,
             title: "The book i'm reading",
@@ -199,13 +199,13 @@ class _WhatImDoingCard extends StatelessWidget {
               '''"Code : The Hidden Language of Computer Hardware and Software" by Charles Petzold''',
             ),
           ),
-          const ContentWrapper(
+          const ContentWrapperMini(
             contentCrossAxisAlignment: .start,
             leading: Icons.movie,
             title: "The Movie/Series i'm watching",
             child: Text("The Rookie SE04EP11"),
           ),
-          const ContentWrapper(
+          const ContentWrapperMini(
             contentCrossAxisAlignment: .start,
             leading: Icons.auto_stories,
             title: "The topic i'm studying",

@@ -79,7 +79,7 @@ class ContentWrapper extends StatelessWidget {
                   if (title != null)
                     Text(
                       title ?? '',
-                      style: context.textTheme.labelSmall?.copyWith(
+                      style: context.textTheme.labelMedium?.copyWith(
                         color: context.colorScheme.onPrimaryContainer,
                       ),
                       overflow: TextOverflow.ellipsis,
@@ -103,6 +103,115 @@ class ContentWrapper extends StatelessWidget {
                 ],
               ),
             ),
+
+          //* Child
+          Padding(
+            padding: padding ?? EdgeInsets.all(context.gutterSmall),
+            child: child,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ContentWrapperMini extends StatelessWidget {
+  const ContentWrapperMini({
+    super.key,
+    required this.child,
+    this.title,
+    this.leading,
+    this.padding,
+    this.margin,
+    this.trailing,
+    this.width,
+    this.trailingWidget,
+    this.contentCrossAxisAlignment,
+  });
+
+  final String? title;
+  final IconData? leading;
+  final String? trailing;
+  final Widget? trailingWidget;
+  final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? margin;
+  final double? width;
+  final CrossAxisAlignment? contentCrossAxisAlignment;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: margin,
+      width: width,
+      padding: .symmetric(vertical: context.gutterTiny),
+      clipBehavior: Clip.antiAlias,
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: context.colorScheme.primary,
+        ),
+        color: context.colorScheme.surfaceContainerLow,
+        borderRadius: BorderRadius.all(
+          Radius.circular(context.gutterTiny),
+        ),
+      ),
+      child: Column(
+        mainAxisAlignment: .start,
+        crossAxisAlignment: contentCrossAxisAlignment ?? .center,
+        children: [
+          if (title != null || leading != null)
+            Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: context.gutterSmall,
+                vertical: context.gutterTiny + 2,
+              ),
+              child: Row(
+                spacing: context.gutterTiny + 2,
+                children: [
+                  //* Leading
+                  if (leading != null)
+                    Icon(
+                      leading,
+                      size: 18,
+                      color: context.colorScheme.onPrimaryContainer,
+                    ),
+
+                  //* Title
+                  if (title != null)
+                    Text(
+                      title ?? '',
+                      style: context.textTheme.labelMedium?.copyWith(
+                        color: context.colorScheme.onPrimaryContainer,
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+
+                  //* Trailing
+                  if (trailingWidget != null)
+                    Expanded(child: trailingWidget!)
+                  else if (trailing != null)
+                    Expanded(
+                      child: Text(
+                        trailing!,
+                        style: context.textTheme.labelSmall?.copyWith(
+                          color: context.colorScheme.onPrimaryContainer
+                              .withValues(alpha: 0.5),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        textAlign: TextAlign.end,
+                      ),
+                    ),
+                ],
+              ),
+            ),
+
+          Divider(
+            height: 0,
+            indent: context.gutterSmall,
+            endIndent: context.gutterSmall,
+            thickness: 1.5,
+            color: context.colorScheme.outlineVariant,
+          ),
 
           //* Child
           Padding(
