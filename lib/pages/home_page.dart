@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:ssnbuilds/extensions/context_ext.dart';
 import 'package:ssnbuilds/gen/assets.gen.dart';
 import 'package:ssnbuilds/widgets/app_footer.dart';
@@ -84,8 +83,10 @@ class _MyNameCardInfo extends StatelessWidget {
           ),
           Text(
             "I AM SANIN T.",
-            style: GoogleFonts.spaceGroteskTextTheme().displayLarge?.copyWith(
+            style: context.textTheme.displayLarge?.copyWith(
               color: context.colorScheme.primary,
+              fontWeight: .w800,
+              fontFamily: 'space_grotesk',
             ),
           ),
           Text(
@@ -96,7 +97,7 @@ class _MyNameCardInfo extends StatelessWidget {
           ),
 
           Padding(
-            padding: .symmetric(vertical: context.gutterTiny),
+            padding: .symmetric(vertical: context.gutterSmall),
             child: Text(
               '"Scratching through the soul of system, duh."',
               style: context.textTheme.bodyMedium?.copyWith(
@@ -185,7 +186,7 @@ class _WhatImDoingCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ContentWrapper(
-      leading: Icons.toggle_on_outlined,
+      leading: Icons.autorenew,
       title: 'What am i doing right now?',
       child: Column(
         spacing: context.gutterSmall,

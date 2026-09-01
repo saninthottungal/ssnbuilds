@@ -16,7 +16,6 @@ dependencies:
     sdk: flutter
   go_router: ^17.0.1
   go_router_builder: ^4.3.0
-  google_fonts: ^8.2.1
   responsive_framework: ^1.5.1
   url_launcher: ^6.3.2
 
@@ -32,19 +31,14 @@ flutter:
   uses-material-design: true
 
   fonts:
-    - family: minecraft
+    - family: jet_brains_mono
       fonts:
-        - asset: assets/fonts/minecraft/minecraft_regular.otf
-        - asset: assets/fonts/minecraft/minecraft_bold.otf
-          weight: 700
-    - family: minecraft_block
+        - asset: assets/fonts/JetBrainsMono-VariableFont.ttf
+    - family: space_grotesk
       fonts:
-        - asset: assets/fonts/minecraft/minecraft_block.ttf
-          weight: 900
+        - asset: assets/fonts/SpaceGrotesk-VariableFont.ttf
 
   assets:
-    # - assets/bg/
-    - assets/fonts/
     - assets/icons/
     - assets/images/
     - assets/logo/

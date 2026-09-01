@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 ThemeData getAppTheme() {
   return ThemeData(
@@ -10,6 +9,6 @@ ThemeData getAppTheme() {
       tertiary: const Color(0xFFFFFFFF),
       brightness: .dark,
     ),
-    textTheme: GoogleFonts.jetBrainsMonoTextTheme(),
+    fontFamily: 'jet_brains_mono',
   );
 }
