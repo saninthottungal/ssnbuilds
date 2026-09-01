@@ -203,7 +203,7 @@ class _WhatImDoingCard extends StatelessWidget {
             contentCrossAxisAlignment: .start,
             leading: Icons.movie,
             title: "The Movie/Series i'm watching",
-            child: Text("The Rookie SE04EP11"),
+            child: Text("Daredevil SE01EP02"),
           ),
           const ContentWrapperMini(
             contentCrossAxisAlignment: .start,
@@ -212,7 +212,7 @@ class _WhatImDoingCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: .start,
               children: [
-                Text("API development using dart_frog"),
+                Text("Building backend using Serverpod"),
                 Text("Building sockets with C"),
               ],
             ),
