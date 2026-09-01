@@ -190,14 +190,6 @@ final List<ProjectModel> _flutterProjects = [
   ),
 
   ProjectModel(
-    leading: Icons.connect_without_contact,
-    title: 'Nyburs',
-    description: ContentConsts.builds.nybursDesc,
-    playstoreUrl: URLConsts.nybursPlaystore,
-    appstoreUrl: URLConsts.nybursAppstore,
-  ),
-
-  ProjectModel(
     leading: Icons.monetization_on,
     title: 'Penny Box',
     description: ContentConsts.builds.pennyBoxDesc,
