@@ -39,9 +39,7 @@ This was my first Flutter project, developed to simplify finding bus timings in 
 ''';
 
   final String nybursDesc = '''
- A hyperlocal social media platform designed specifically for the Indian market, focusing on connecting users within their immediate geographic communities ranging from the village to the state level. 
- Unlike traditional global social networks, it emphasizes "social connectivity" through pre-segmented feeds and support for over 12 Indian languages and local dialects to remove communication barriers. 
-
+A hyperlocal social media platform designed specifically for the Indian market, focusing on connecting users within their immediate geographic communities ranging from the village to the state level. 
 ''';
 
   final String hostproDesc = '''
@@ -66,15 +64,16 @@ By the way, have you read "Code : The Hidden Language of Computer Hardware and S
   final List<String> skillsAndTechs = const [
     'Dart',
     'Flutter',
+    'Supabase',
+    'PostgreSQL',
+    'Firebase',
+    'Drift',
+    'SQLite',
+    'dart_frog',
     'C/C++',
     'Bash',
-    'SQL',
     'HTML',
     'CSS',
-    'Flutter',
     'Git',
-    'MySQL',
-    'PostgreSQL',
-    'SQLite',
   ];
 }

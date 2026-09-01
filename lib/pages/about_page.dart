@@ -109,7 +109,7 @@ class _DP extends StatelessWidget {
           Text(
             "sanin t.",
             style: context.textTheme.titleLarge?.copyWith(
-              fontFamily: 'minecraft_block',
+              fontFamily: 'space_grotesk',
               color: context.colorScheme.onPrimaryContainer,
             ),
           ),
@@ -235,7 +235,7 @@ class _Experience extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ContentWrapper(
+    return ContentWrapper(
       leading: Icons.work_outline,
       title: 'Experience',
       child: Column(
@@ -243,14 +243,15 @@ class _Experience extends StatelessWidget {
           ContentWrapper(
             title: 'Flutter Developer',
             contentCrossAxisAlignment: .start,
-            trailing: 'june 2024 - present',
+            trailing: 'june 2024 - june 2026',
             child: Column(
               crossAxisAlignment: .start,
               children: [
-                Text("Company: Paiteq pvt limited"),
-                Text("Employment status : Full-time"),
-                Text("Location: Remote"),
-                Text("Working on Nyburs - An intuitive Social media app"),
+                const Text("Company: Paiteq pvt limited"),
+                const Text("Employment status : Full-time"),
+                const Text("Location: Remote"),
+                const Text("worked on Nyburs - An intuitive Social media app:"),
+                Text(ContentConsts.builds.nybursDesc),
               ],
             ),
           ),
@@ -272,16 +273,31 @@ class _Education extends StatelessWidget {
         spacing: context.gutterSmall,
         children: [
           const ContentWrapper(
+            title: "Master's degree",
+            contentCrossAxisAlignment: .start,
+            trailing: 'Aug 2026 - Present',
+            child: Column(
+              crossAxisAlignment: .start,
+              children: [
+                Text("Course: M.Sc in Computer Science"),
+                Text("Institution: Department of Computer Science, CU"),
+                Text("University: Calicut University"),
+                Text("Location: Malappuram, Kerala"),
+              ],
+            ),
+          ),
+
+          const ContentWrapper(
             title: "Bachelor's degree",
             contentCrossAxisAlignment: .start,
             trailing: 'nov 2021 - apr 2024',
             child: Column(
               crossAxisAlignment: .start,
               children: [
-                Text("Institution: Calicut University"),
-                Text("Major: B.Sc in Computer Science"),
-                Text("Minor: Discrete Mathematics"),
-                Text("Location: Malappuram, Kerala"),
+                Text("Course: B.Sc in Computer Science"),
+                Text("Institution: Gems Arts & Science College"),
+                Text("University: Calicut University"),
+                Text("Location: Ramapuram, Malappuram, Kerala"),
               ],
             ),
           ),
