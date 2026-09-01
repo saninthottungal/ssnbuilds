@@ -25,27 +25,36 @@ class HomePage extends StatelessWidget {
                       _MyNameCardInfo(),
                       _CurrentProject(),
                       _WhatImDoingCard(),
+                      _RecentActivityCard(),
                     ],
                   );
                 } else {
-                  return IntrinsicHeight(
-                    child: Row(
-                      spacing: context.gutter,
-                      children: [
-                        Expanded(
-                          child: Column(
-                            spacing: context.gutterSmall,
-                            children: [
-                              const Expanded(child: _MyNameCardInfo()),
-                              const _CurrentProject(),
-                            ],
-                          ),
+                  return Column(
+                    mainAxisSize: .min,
+                    spacing: context.gutter,
+                    children: [
+                      IntrinsicHeight(
+                        child: Row(
+                          spacing: context.gutter,
+                          children: [
+                            Expanded(
+                              child: Column(
+                                spacing: context.gutterSmall,
+                                children: [
+                                  const Expanded(child: _MyNameCardInfo()),
+                                  const _CurrentProject(),
+                                ],
+                              ),
+                            ),
+                            const Expanded(
+                              child: _WhatImDoingCard(),
+                            ),
+                          ],
                         ),
-                        const Expanded(
-                          child: _WhatImDoingCard(),
-                        ),
-                      ],
-                    ),
+                      ),
+
+                      const _RecentActivityCard(),
+                    ],
                   );
                 }
               },
@@ -215,6 +224,53 @@ class _WhatImDoingCard extends StatelessWidget {
                 Text("Building backend using Serverpod"),
                 Text("Building sockets with C"),
               ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _RecentActivityCard extends StatelessWidget {
+  const _RecentActivityCard();
+
+  @override
+  Widget build(BuildContext context) {
+    return ContentWrapper(
+      leading: Icons.code,
+      title: 'Recent Activity',
+      contentCrossAxisAlignment: .start,
+      child: Column(
+        mainAxisSize: .min,
+        crossAxisAlignment: .start,
+        spacing: 4,
+        children: [
+          Text.rich(
+            TextSpan(
+              children: [
+                TextSpan(
+                  text: r"sanin@ssnbuilds:~$",
+                  style: context.textTheme.bodyMedium?.copyWith(
+                    color: context.colorScheme.primary,
+                  ),
+                ),
+                const TextSpan(text: ' git log --oneline -n 3'),
+              ],
+            ),
+            textAlign: .start,
+          ),
+          const Text('2d8e2g5 [docs] updated privacy and policy for Hostpro'),
+          const Text(
+            '1c9d0f3 [fix] phone number error while signing up in Hostpro fixed',
+          ),
+          const Text('4b8e1a2 [feat] ssnbuilds.in portfolio revamp completed'),
+          const Text('7a2f3c1 [feat] implemented QR code scanning in Hostpro'),
+
+          Text(
+            r"sanin@ssnbuilds:~$",
+            style: context.textTheme.bodyMedium?.copyWith(
+              color: context.colorScheme.primary,
             ),
           ),
         ],
