@@ -240,7 +240,7 @@ class _Experience extends StatelessWidget {
       title: 'Experience',
       child: Column(
         children: [
-          ContentWrapper(
+          ContentWrapperMini(
             title: 'Flutter Developer',
             contentCrossAxisAlignment: .start,
             trailing: 'june 2024 - june 2026',
@@ -272,7 +272,7 @@ class _Education extends StatelessWidget {
       child: Column(
         spacing: context.gutterSmall,
         children: [
-          const ContentWrapper(
+          const ContentWrapperMini(
             title: "Master's degree",
             contentCrossAxisAlignment: .start,
             trailing: 'Aug 2026 - Present',
@@ -287,7 +287,7 @@ class _Education extends StatelessWidget {
             ),
           ),
 
-          const ContentWrapper(
+          const ContentWrapperMini(
             title: "Bachelor's degree",
             contentCrossAxisAlignment: .start,
             trailing: 'nov 2021 - apr 2024',
