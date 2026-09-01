@@ -21,10 +21,11 @@ class BuildsPage extends StatelessWidget {
           SliverToBoxAdapter(
             child: ContentWrapper(
               child: Text(
-                "Builds Showcase",
-                style: context.textTheme.headlineMedium?.copyWith(
-                  fontFamily: 'minecraft_block',
-                  color: context.colorScheme.onPrimaryContainer,
+                "Builds Showcase".toUpperCase(),
+                style: context.textTheme.displaySmall?.copyWith(
+                  color: context.colorScheme.primary,
+                  fontWeight: .w900,
+                  fontFamily: 'space_grotesk',
                 ),
               ),
             ),
@@ -34,10 +35,24 @@ class BuildsPage extends StatelessWidget {
           const SliverToBoxAdapter(child: Gutter()),
 
           SliverToBoxAdapter(
-            child: Text(
-              "Flutter Builds",
-              style: context.textTheme.titleLarge?.copyWith(
-                fontFamily: 'minecraft_block',
+            child: Padding(
+              padding: .only(bottom: context.gutterSmall),
+              child: Row(
+                spacing: context.gutterTiny,
+
+                children: [
+                  Icon(
+                    Icons.terminal,
+                    color: context.colorScheme.primary,
+                  ),
+                  Text(
+                    "Flutter Builds".toUpperCase(),
+                    style: context.textTheme.headlineMedium?.copyWith(
+                      fontFamily: 'space_grotesk',
+                      fontWeight: .w500,
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
@@ -98,10 +113,24 @@ class BuildsPage extends StatelessWidget {
           const SliverToBoxAdapter(child: Gutter.large()),
 
           SliverToBoxAdapter(
-            child: Text(
-              "C Builds",
-              style: context.textTheme.titleLarge?.copyWith(
-                fontFamily: 'minecraft_block',
+            child: Padding(
+              padding: .only(bottom: context.gutterSmall),
+              child: Row(
+                spacing: context.gutterTiny,
+
+                children: [
+                  Icon(
+                    Icons.terminal,
+                    color: context.colorScheme.primary,
+                  ),
+                  Text(
+                    "C Builds".toUpperCase(),
+                    style: context.textTheme.headlineMedium?.copyWith(
+                      fontFamily: 'space_grotesk',
+                      fontWeight: .w500,
+                    ),
+                  ),
+                ],
               ),
             ),
           ),

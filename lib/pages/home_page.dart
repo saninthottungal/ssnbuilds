@@ -92,9 +92,9 @@ class _MyNameCardInfo extends StatelessWidget {
           ),
           Text(
             "I AM SANIN T.",
-            style: context.textTheme.displayLarge?.copyWith(
+            style: context.textTheme.displaySmall?.copyWith(
               color: context.colorScheme.primary,
-              fontWeight: .w800,
+              fontWeight: .w900,
               fontFamily: 'space_grotesk',
             ),
           ),
